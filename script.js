@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         animateCounters();
 
         if (svgAnimation) {
-          svgAnimation.beginElement(); // ⬅️ trigger SVG stroke animation
+          svgAnimation.beginElement(); // ⬅ trigger SVG stroke animation
         }
 
         obs.disconnect(); // run once, stop observing
@@ -70,18 +70,26 @@ document.addEventListener("DOMContentLoaded", () => {
     underline.style.left = element.offsetLeft + "px";
   }
 
-  // set initial underline + active style + content
+  // ✅ set initial underline + active style + content
   moveUnderline(tabs[0]);
   tabs[0].classList.replace("text-[#6E6D6D]", "text-[#E0E0E0]");
-  contents.forEach((c, i) => c.classList.toggle("hidden", i !== 0));
+
+  contents.forEach((c, i) => {
+    if (i === 0) {
+      c.classList.remove("hidden");
+      requestAnimationFrame(() => c.classList.remove("opacity-0")); // fade in first
+    } else {
+      c.classList.add("hidden", "opacity-0");
+    }
+  });
 
   tabs.forEach((tab, index) => {
     tab.addEventListener("click", () => {
-      // 👉 move underline here
+      // 👉 move underline
       moveUnderline(tab);
 
       // update active tab styles
-      tabs.forEach(t => {
+      tabs.forEach((t) => {
         t.classList.remove("text-[#E0E0E0]");
         t.classList.add("text-[#6E6D6D]");
       });
@@ -89,9 +97,10 @@ document.addEventListener("DOMContentLoaded", () => {
       tab.classList.add("text-[#E0E0E0]");
 
       // fade out all
-      contents.forEach(c => {
+      contents.forEach((c) => {
+        c.classList.remove("opacity-100");
         c.classList.add("opacity-0");
-        setTimeout(() => c.classList.add("hidden"), 300);
+        setTimeout(() => c.classList.add("hidden"), 300); // match duration-300/500
       });
 
       // fade in selected
@@ -99,9 +108,72 @@ document.addEventListener("DOMContentLoaded", () => {
         contents[index].classList.remove("hidden");
         requestAnimationFrame(() => {
           contents[index].classList.remove("opacity-0");
+          contents[index].classList.add("opacity-100");
         });
       }, 300);
     });
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const projectTabs = document.querySelectorAll(".project-tab");
+  const projectItems = document.querySelectorAll(".project-item");
+  const projectUnderline = document.getElementById("project-underline");
 
+  function moveProjectUnderline(element) {
+    projectUnderline.style.width = element.offsetWidth + "px";
+    projectUnderline.style.left = element.offsetLeft + "px";
+  }
+
+  function filterProjects(tabName) {
+    // fade out all first
+    projectItems.forEach((item) => {
+      item.classList.remove("opacity-100");
+      item.classList.add("opacity-0");
+      setTimeout(() => item.classList.add("hidden"), 300); // match CSS transition
+    });
+
+    // fade in selected after fade-out completes
+    setTimeout(() => {
+      projectItems.forEach((item) => {
+        if (
+          tabName === "all" ||
+          item.classList.contains(tabName) ||
+          (tabName === "features" && item.classList.contains("feature"))
+        ) {
+          item.classList.remove("hidden");
+          requestAnimationFrame(() => {
+            item.classList.remove("opacity-0");
+            item.classList.add("opacity-100");
+          });
+        }
+      });
+    }, 300);
+  }
+
+  // ✅ set default active tab = first one (Feature)
+  const defaultTab = projectTabs[0];
+  const defaultName = defaultTab.textContent.trim().toLowerCase();
+
+  moveProjectUnderline(defaultTab);
+  defaultTab.classList.add("text-white");
+
+  // set initial state: hide all, then fade in defaults
+  projectItems.forEach((item) => {
+    item.classList.add("hidden", "opacity-0", "transition-opacity", "duration-300");
+  });
+  filterProjects(defaultName);
+
+  // ✅ add click listeners
+  projectTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const tabName = tab.textContent.trim().toLowerCase();
+
+      moveProjectUnderline(tab);
+
+      projectTabs.forEach((t) => t.classList.remove("text-white"));
+      tab.classList.add("text-white");
+
+      filterProjects(tabName);
+    });
+  });
+});
