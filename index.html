@@ -362,14 +362,14 @@
         <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
           <!-- Item only for Features -->
           <div
-            class="project-item feature hover:cursor-pointer hover:scale-102 transition-transform group/feature1"
+            class="project-item feature hover:cursor-pointer active:scale-102 hover:scale-102 transition-transform group/feature1"
           >
             <div class="w-full relative">
               <div
-                class="absolute inset-0 opacity-0 transition-opacity group-hover/feature1:opacity-100 bg-gradient-to-b from-black/80 to-transparent"
+                class="absolute inset-0 opacity-0 transition-opacity group-hover/feature1:opacity-100 group-active/feature1:opacity-100 bg-gradient-to-b from-black/80 to-transparent"
               ></div>
               <div
-                class="absolute top-5 right-5 scale-0 transition-transform group-hover/feature1:scale-100"
+                class="absolute top-5 right-5 scale-0 transition-transform group-hover/feature1:scale-100 group-active/feature1:scale-100"
               >
                 <a href="#">View</a>
               </div>
@@ -433,11 +433,11 @@
       <hr class="sm:my-20 my-16 border-[#5C5959]" />
       <section
         id="contactsection"
-        class="fixed inset-0 h-screen w-screen hidden fade-in"
+        class="fixed inset-0 h-screen w-screen hidden"
       >
         <div class="relative z-20 h-full w-full">
           <button
-            class="absolute top-5 left-6 md:top-10 md:left-10 z-[30] hover:cursor-pointer closecontact"
+            class="absolute top-2 left-4 md:top-10 md:left-10 z-[30] hover:cursor-pointer closecontact fade-in"
           >
             Go back
           </button>
@@ -452,7 +452,7 @@
           </video>
           <div class="absolute inset-0 w-full h-full z-[25] backdrop-blur-sm">
             <div
-              class="grid grid-cols-1 md:grid-cols-2 items md:px-10 px-8 xl:px-60 py-20 w-full h-full items-center gap-4 md:gap-6 xl:gap-10"
+              class="grid grid-cols-1 md:grid-cols-2 items md:px-10 px-8 xl:px-60 py-20 w-full h-full items-center gap-4 md:gap-6 xl:gap-10 fade-in"
             >
               <aside
                 class="xl:p-10 p-4 md:p-6 bg-[#E0E0E0]/10 h-full border-[#E0E0E0]/20 border-2"
