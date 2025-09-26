@@ -1,9 +1,11 @@
-let lightboxOpener=document.querySelector('.lightboxopener');
-let lightbox =document.querySelector('.lightbox');
-lightboxOpener.addEventListener('click',()=>{
-    lightbox.classList.remove('hidden');
-    lightbox.classList.add('block')
+let lightboxOpener = document.querySelector('.lightboxopener');
+let lightbox = document.querySelector('.lightbox');
+
+lightboxOpener.addEventListener('click', () => {
+  lightbox.classList.remove('hidden');
+  lightbox.classList.add('block');
 });
+
 let closelightbox = document.querySelectorAll('.closelightbox');
 closelightbox.forEach(close => {
   close.addEventListener('click', () => {
@@ -11,67 +13,56 @@ closelightbox.forEach(close => {
     lightbox.classList.remove('block');
   });
 });
-document.addEventListener("DOMContentLoaded", function () {
+
+document.addEventListener("DOMContentLoaded", () => {
+  // -------------------------
+  // Counters + SVG animation
+  // -------------------------
   let element1 = document.getElementById("counter1");
   let element2 = document.getElementById("counter2");
-
-  let start1 = 0, end1 = 200, duration1 = 3000;
-  let start2 = 0, end2 = 20, duration2 = 3000;
-
-  // your SVG <animate> element
   let svgAnimation = document.getElementById("lineAnimation");
 
-  function animateCounters() {
-    let startTime = null;
+  const start1 = 0, end1 = 200, duration1 = 3000;
+  const start2 = 0, end2 = 20, duration2 = 3000;
 
+  function animate(el, start, end, dur) {
+    let startTime = null;
     function step(timestamp) {
       if (!startTime) startTime = timestamp;
-
-      // counter1
-      let progress1 = Math.min((timestamp - startTime) / duration1, 1);
-      element1.textContent = Math.floor(progress1 * (end1 - start1) + start1);
-
-      // counter2
-      let progress2 = Math.min((timestamp - startTime) / duration2, 1);
-      element2.textContent = Math.floor(progress2 * (end2 - start2) + start2);
-
-      if (progress1 < 1 || progress2 < 1) {
-        requestAnimationFrame(step);
-      }
+      let progress = Math.min((timestamp - startTime) / dur, 1);
+      el.textContent = Math.floor(progress * (end - start) + start);
+      if (progress < 1) requestAnimationFrame(step);
     }
-
     requestAnimationFrame(step);
   }
 
-  // observe when counters enter view
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCounters();
-
-        if (svgAnimation) {
-          svgAnimation.beginElement(); // ⬅ trigger SVG stroke animation
+  if (element1) {
+    new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animate(element1, start1, end1, duration1);
+          if (element2) animate(element2, start2, end2, duration2);
+          if (svgAnimation) svgAnimation.beginElement();
+          obs.disconnect();
         }
+      });
+    }, { threshold: 0.5 }).observe(element1);
+  }
 
-        obs.disconnect(); // run once, stop observing
-      }
-    });
-  }, { threshold: 0.5 });
-
-  observer.observe(element1);
-});
-document.addEventListener("DOMContentLoaded", () => {
+  // -------------------------
+  // Tabs (main)
+  // -------------------------
   const tabs = document.querySelectorAll(".tab");
   const underline = document.getElementById("underline");
   const contents = document.querySelectorAll(".tab-content");
 
-  function moveUnderline(element) {
-    underline.style.width = element.offsetWidth + "px";
-    underline.style.left = element.offsetLeft + "px";
+  function moveUnderline(element, targetUnderline) {
+    targetUnderline.style.width = element.offsetWidth + "px";
+    targetUnderline.style.left = element.offsetLeft + "px";
   }
 
-  // ✅ set initial underline + active style + content
-  moveUnderline(tabs[0]);
+  // set initial underline + active style + content
+  moveUnderline(tabs[0], underline);
   tabs[0].classList.replace("text-[#6E6D6D]", "text-[#E0E0E0]");
 
   contents.forEach((c, i) => {
@@ -85,8 +76,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   tabs.forEach((tab, index) => {
     tab.addEventListener("click", () => {
-      // 👉 move underline
-      moveUnderline(tab);
+      // move underline
+      moveUnderline(tab, underline);
 
       // update active tab styles
       tabs.forEach((t) => {
@@ -113,8 +104,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 300);
     });
   });
-});
-document.addEventListener("DOMContentLoaded", () => {
+
+  // -------------------------
+  // Project filter
+  // -------------------------
   const projectTabs = document.querySelectorAll(".project-tab");
   const projectItems = document.querySelectorAll(".project-item");
   const projectUnderline = document.getElementById("project-underline");
@@ -150,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 300);
   }
 
-  // ✅ set default active tab = first one (Feature)
+  // default active tab = first one (Feature)
   const defaultTab = projectTabs[0];
   const defaultName = defaultTab.textContent.trim().toLowerCase();
 
@@ -163,28 +156,75 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   filterProjects(defaultName);
 
-  // ✅ add click listeners
+  // add click listeners
   projectTabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       const tabName = tab.textContent.trim().toLowerCase();
-
       moveProjectUnderline(tab);
-
       projectTabs.forEach((t) => t.classList.remove("text-white"));
       tab.classList.add("text-white");
-
       filterProjects(tabName);
     });
   });
+
+  // -------------------------
+  // Contact section
+  // -------------------------
+  let contactsection = document.getElementById('contactsection');
+  let opencontact = document.querySelectorAll('.opencontact');
+  let closecontact = document.querySelector('.closecontact');
+
+  opencontact.forEach((open) => {
+    open.addEventListener('click', () => {
+      contactsection.classList.remove('hidden');
+    });
+  });
+
+  if (closecontact) {
+    closecontact.addEventListener('click', () => {
+      contactsection.classList.add('hidden');
+    });
+  }
+
+  // -------------------------
+  // Fade-in observer + setup
+  // -------------------------
+  const fadeInObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("opacity-100", "translate-y-0");
+        entry.target.classList.remove("opacity-0", "translate-y-10");
+        // fadeInObserver.unobserve(entry.target); // uncomment if you only want once
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll(".fade-in").forEach(el => {
+    el.classList.add(
+      "opacity-0",
+      "translate-y-10",
+      "transition",
+      "duration-700",
+      "ease-out"
+    );
+    fadeInObserver.observe(el);
+  });
+
+  // -------------------------
+  // Loader logic (wait for full load)
+  // -------------------------
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    loader.classList.add("opacity-0", "transition", "duration-700");
+
+    setTimeout(() => {
+      loader.style.display = "none";
+
+      // Force re-check AFTER loader is gone so top elements animate
+      document.querySelectorAll(".fade-in").forEach(el => {
+        fadeInObserver.unobserve(el);
+        fadeInObserver.observe(el);
+      });
+    }, 700); // match fade-out duration
+  });
 });
-let contactsection=document.getElementById('contactsection');
-let opencontact=document.querySelectorAll('.opencontact');
-let closecontact=document.querySelector('.closecontact')
-opencontact.forEach((open)=>{
-  open.addEventListener('click',()=>{
-    contactsection.classList.remove('hidden');
-  })
-})
-closecontact.addEventListener('click',()=>{
-   contactsection.classList.add('hidden');
-})
