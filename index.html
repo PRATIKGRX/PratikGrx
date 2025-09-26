@@ -99,7 +99,7 @@
                 into functional designs that work seamlessly across devices.
               </p>
               <p class="text-[#B4B4B4]">
-                Skilled in HTML, CSS, JavaScript, and Tailwind CSS, I’m always
+                Skilled in HTML, CSS, JavaScript, and Tailwind CSS, I'm always
                 exploring new ways to build smooth and engaging web experiences.
               </p>
             </div>
@@ -439,7 +439,7 @@
       >
         <div class="relative z-20 h-full w-full">
           <button
-            class="absolute top-2 left-4 md:top-10 md:left-10 z-[30] hover:cursor-pointer closecontact fade-in"
+            class="absolute top-4 left-4 md:top-10 md:left-10 z-[30] hover:cursor-pointer closecontact fade-in"
           >
             Go back
           </button>
@@ -448,11 +448,11 @@
             muted
             loop
             playsinline
-            class="absolute inset-0 w-full object-cover z-[21]"
+            class="absolute md:block hidden inset-0 w-full object-cover z-[21]"
           >
             <source src="back.mp4" type="video/mp4" />
           </video>
-          <div class="absolute inset-0 w-full h-full z-[25] backdrop-blur-sm">
+          <div class="absolute inset-0 w-full h-full z-[25] md:backdrop-blur-sm backdrop-blur-xl">
             <div
               class="grid grid-cols-1 md:grid-cols-2 items md:px-10 px-8 xl:px-60 py-20 w-full h-full items-center gap-4 md:gap-6 xl:gap-10 fade-in"
             >
@@ -473,26 +473,32 @@
                 </div>
               </aside>
               <div>
-                <form action="" class="flex flex-col gap-3">
+                <form action="https://formspree.io/f/mpwywgyg" id="myform" method="POST" class="flex flex-col gap-3">
                   <input
                     type="text"
                     placeholder="Name"
+                    name="SenderName"
                     class="bg-[#E0E0E0]/10 border-[#E0E0E0]/20 border-2 p-3"
+                    required
                   />
                   <input
                     type="email"
                     placeholder="Email"
+                    name="SenderEmail"
                     class="bg-[#E0E0E0]/10 border-[#E0E0E0]/20 border-2 p-3"
+                    required
                   />
                   <textarea
-                    name=""
-                    id=""
+                    id="SenderMessage"
                     class="bg-[#E0E0E0]/10 border-[#E0E0E0]/20 border-2 p-3 resize-none h-[180px] md:h-[240px]"
+                    name="SenderMessage"
                     placeholder="Message"
+                    required
                   ></textarea>
-                  <button class="bg-[#E0E0E0] text-black p-3">
+                  <button id="submitBtn" class="bg-[#E0E0E0] text-black p-3">
                     Send Message
                   </button>
+                  
                 </form>
               </div>
             </div>
@@ -505,7 +511,9 @@
         </div>
       </section>
     </main>
-
+<p id="formstatus" 
+   class="fixed top-4 right-4 bg-white/10 backdrop-blur-xl rounded-lg text-[#e0e0e0] px-4 py-2 rounded-lg shadow-md text-sm opacity-0 pointer-events-none transition-opacity duration-600 delay-1500 z-[999]">
+</p>
     <footer
       class="relative z-[2] pb-16 sm:pb-20 xl:px-80 lg:px-60 md:px-30 sm:px-15 px-4"
     >

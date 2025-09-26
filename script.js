@@ -261,3 +261,43 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 700);
   });
 });
+const form = document.getElementById("myform");
+  const formstatus = document.getElementById("formstatus");
+  const submitBtn = document.getElementById("submitBtn");
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const data = new FormData(form);
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Sending...";
+
+  // Show with fade-in
+  formstatus.classList.remove("opacity-0");
+  formstatus.textContent = " Sending...";
+
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { Accept: "application/json" },
+    });
+
+    if (response.ok) {
+      formstatus.textContent = "Message sent successfully!";
+      form.reset();
+      contactsection.classList.add('hidden');
+    } else {
+      formstatus.textContent = "Oops! Something went wrong.";
+    }
+  } catch (err) {
+    formstatus.textContent = "Network error !. Try again later.";
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Send Message";
+
+    // Fade out after 3s
+    setTimeout(() => {
+      formstatus.classList.add("opacity-0");
+    }, 1500);
+  }
+});
