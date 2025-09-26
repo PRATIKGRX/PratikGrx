@@ -177,3 +177,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+let contactsection=document.getElementById('contactsection');
+let opencontact=document.querySelectorAll('.opencontact');
+let closecontact=document.querySelector('.closecontact')
+opencontact.forEach((open)=>{
+  open.addEventListener('click',()=>{
+    contactsection.classList.remove('hidden');
+  })
+})
+closecontact.addEventListener('click',()=>{
+   contactsection.classList.add('hidden');
+})

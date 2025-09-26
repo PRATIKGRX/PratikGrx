@@ -22,7 +22,7 @@
       <nav>
         <div class="flex justify-between p-4 font-bold">
           <div>Pratik Grx</div>
-          <button class="hover:cursor-pointer">
+          <button class="hover:cursor-pointer opencontact">
             <p class="hidden sm:block">Contact Me</p>
             <svg
               class="block sm:hidden"
@@ -354,11 +354,17 @@
         <!-- ONE grid container -->
         <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
           <!-- Item only for Features -->
-          <div class="project-item feature">
-            <img
+          <div class="project-item feature hover:cursor-pointer hover:scale-102 transition-transform group/feature1">
+            <div class="w-full relative">
+              <div class="absolute inset-0 opacity-0 transition-opacity group-hover/feature1:opacity-100 bg-gradient-to-b from-black/80 to-transparent"></div>
+              <div class="absolute top-5 right-5 scale-0 transition-transform group-hover/feature1:scale-100">
+                <a href="#">View</a>
+              </div>
+              <img
               src="https://i.pinimg.com/1200x/bc/87/75/bc8775e0d865b16ed58d26a5bf08c23e.jpg"
               class="aspect-video w-full object-cover object-center"
             />
+            </div>
             <div class="bg-[#1C1C1C] p-2">
               <p class="mb-1">for feature</p>
               <p class="text-sm">Project desc</p>
@@ -412,10 +418,57 @@
       </section>
 
       <hr class="sm:my-20 my-16 border-[#5C5959]" />
+      <section id="contactsection" class="fixed inset-0 h-screen w-screen hidden">
+        <div class="relative z-20 h-full w-full">
+          <button class="absolute top-10 left-10 z-[30] hover:cursor-pointer closecontact">Go back</button>
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            class="absolute inset-0 w-full object-cover z-[21]"
+          >
+            <source src="back.mp4" type="video/mp4" />
+          </video>
+          <div
+            class="absolute inset-0 w-full h-full z-[25] backdrop-blur-sm "
+          >
+          <div class="grid grid-cols-1 md:grid-cols-2 items md:px-10 px-8 xl:px-60 py-20 w-full h-full items-center gap-4 md:gap-6 xl:gap-10">
+
+            <aside class="xl:p-10 p-4 md:p-6 bg-[#E0E0E0]/10 h-full border-[#E0E0E0]/20 border-2">
+              <h3 class="md:text-4xl text-2xl">Get in Touch</h3>
+              <div class="grid md:grid-cols-1 grid-cols-2 gap-2  md:py-10">
+                <div>location</div>
+                <div>gmail</div>
+                <div>Contact</div>
+                <div class="flex md:flex-col gap-2 ">
+                  <div>insta</div>
+                <div>whatsapp</div>
+                <div>Github</div>
+                <div>facebook</div>
+                </div>
+              </div>
+            </aside>
+            <div>
+              <form action="" class="flex flex-col gap-3">
+                <input type="text" placeholder="Name" class="bg-[#E0E0E0]/10 border-[#E0E0E0]/20 border-2 p-3"/>
+                <input type="email" placeholder="Email" class="bg-[#E0E0E0]/10 border-[#E0E0E0]/20 border-2 p-3"/>
+                <textarea name="" id="" class="bg-[#E0E0E0]/10 border-[#E0E0E0]/20 border-2 p-3 resize-none h-[180px] md:h-[240px]" placeholder="Message"></textarea>
+                <button class="bg-[#E0E0E0] text-black p-3">Send Message</button>
+              </form>
+            </div>
+          </div>
+          </div>
+          <p class="text-[#A8A8A8] left-1/2 -translate-x-1/2 text-xs absolute bottom-0 z-30">
+      &copy; 2025 Pratik Grx. All rights reserved.
+    </p>
+        </div>
+        
+      </section>
     </main>
 
     <footer
-      class="relative z-10 pb-16 sm:pb-20 xl:px-80 lg:px-60 md:px-30 sm:px-15 px-4"
+      class="relative z-[2] pb-16 sm:pb-20 xl:px-80 lg:px-60 md:px-30 sm:px-15 px-4"
     >
       <section class="sm:mb-8 mb-6">
         <h2 class="text-2xl font-bold">Contact</h2>
@@ -435,11 +488,11 @@
           >
             location
           </p>
-          <p
-            class="flex items-center gap-2 p-3 border-[#5C5959] rounded-sm border hover:cursor-pointer"
+          <button
+            class="flex items-center gap-2 p-3 border-[#5C5959] rounded-sm border hover:cursor-pointer opencontact"
           >
             Message me right now?
-          </p>
+          </button>
         </div>
       </section>
       <section class="flex flex-col gap-3">
@@ -470,7 +523,7 @@
         </div>
       </section>
     </footer>
-    <p class="text-[#A8A8A8] text-center text-xs relative z-10">
+    <p class="text-[#A8A8A8] text-center text-xs relative z-2">
       &copy; 2025 Pratik Grx. All rights reserved.
     </p>
   </body>
