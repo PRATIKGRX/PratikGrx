@@ -1,16 +1,36 @@
 let lightboxOpener = document.querySelector('.lightboxopener');
 let lightbox = document.querySelector('.lightbox');
+let lightboximg = document.getElementById('lightboximg');
+let closelightbox = document.querySelectorAll('.closelightbox');
 
+// Open lightbox
 lightboxOpener.addEventListener('click', () => {
   lightbox.classList.remove('hidden');
   lightbox.classList.add('block');
+
+  // reset to invisible first
+  lightboximg.classList.remove('opacity-100');
+  lightboximg.classList.add('opacity-0');
+
+  // trigger fade-in on next frame
+  requestAnimationFrame(() => {
+    lightboximg.classList.remove('opacity-0');
+    lightboximg.classList.add('opacity-100');
+  });
 });
 
-let closelightbox = document.querySelectorAll('.closelightbox');
+// Close lightbox
 closelightbox.forEach(close => {
   close.addEventListener('click', () => {
-    lightbox.classList.add('hidden');
-    lightbox.classList.remove('block');
+    // fade out
+    lightboximg.classList.remove('opacity-100');
+    lightboximg.classList.add('opacity-0');
+
+    // hide container after fade
+    setTimeout(() => {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('block');
+    }, 300); // match your transition duration
   });
 });
 
@@ -91,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
       contents.forEach((c) => {
         c.classList.remove("opacity-100");
         c.classList.add("opacity-0");
-        setTimeout(() => c.classList.add("hidden"), 300); // match duration-300/500
+        setTimeout(() => c.classList.add("hidden"), 300);
       });
 
       // fade in selected
@@ -122,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
     projectItems.forEach((item) => {
       item.classList.remove("opacity-100");
       item.classList.add("opacity-0");
-      setTimeout(() => item.classList.add("hidden"), 300); // match CSS transition
+      setTimeout(() => item.classList.add("hidden"), 300);
     });
 
     // fade in selected after fade-out completes
@@ -150,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
   moveProjectUnderline(defaultTab);
   defaultTab.classList.add("text-white");
 
-  // set initial state: hide all, then fade in defaults
+  // set initial state
   projectItems.forEach((item) => {
     item.classList.add("hidden", "opacity-0", "transition-opacity", "duration-300");
   });
@@ -187,18 +207,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // -------------------------
-  // Fade-in observer + setup
+  // Fade-in & Fade-top observer
   // -------------------------
-  const fadeInObserver = new IntersectionObserver((entries) => {
+  const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("opacity-100", "translate-y-0");
-        entry.target.classList.remove("opacity-0", "translate-y-10");
-        // fadeInObserver.unobserve(entry.target); // uncomment if you only want once
+        entry.target.classList.remove("opacity-0", "translate-y-10", "-translate-y-10");
+        // fadeObserver.unobserve(entry.target); // uncomment for one-time only
       }
     });
   }, { threshold: 0.2 });
 
+  // fade-in (bottom)
   document.querySelectorAll(".fade-in").forEach(el => {
     el.classList.add(
       "opacity-0",
@@ -207,11 +228,23 @@ document.addEventListener("DOMContentLoaded", () => {
       "duration-700",
       "ease-out"
     );
-    fadeInObserver.observe(el);
+    fadeObserver.observe(el);
+  });
+
+  // fade-top (top)
+  document.querySelectorAll(".fade-top").forEach(el => {
+    el.classList.add(
+      "opacity-0",
+      "-translate-y-10",
+      "transition",
+      "duration-700",
+      "ease-out"
+    );
+    fadeObserver.observe(el);
   });
 
   // -------------------------
-  // Loader logic (wait for full load)
+  // Loader logic
   // -------------------------
   window.addEventListener("load", () => {
     const loader = document.getElementById("loader");
@@ -220,11 +253,11 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       loader.style.display = "none";
 
-      // Force re-check AFTER loader is gone so top elements animate
-      document.querySelectorAll(".fade-in").forEach(el => {
-        fadeInObserver.unobserve(el);
-        fadeInObserver.observe(el);
+      // re-check fades after loader disappears
+      document.querySelectorAll(".fade-in, .fade-top").forEach(el => {
+        fadeObserver.unobserve(el);
+        fadeObserver.observe(el);
       });
-    }, 700); // match fade-out duration
+    }, 700);
   });
 });
