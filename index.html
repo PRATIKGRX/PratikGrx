@@ -1,578 +1,915 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pratik Grx</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  </head>
-  <body class="text-[#E0E0E0] bg-black font-medium relative">
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
-      class="fixed inset-0 w-screen h-screen object-cover -z-10"
-    >
-      <source src="back.mp4" type="video/mp4" />
-    </video>
 
-    <div class="absolute inset-0 z-0 backdrop-blur-[4px]"></div>
-    <div
-      id="loader"
-      class="fixed inset-0 bg-black flex items-center justify-center z-50"
-    >
-      <div
-        class="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"
-      ></div>
-    </div>
-    <header class="relative z-10 fade-top">
-      <nav>
-        <div class="flex justify-between p-4 font-bold">
-          <div>Pratik Grx</div>
-          <button class="hover:cursor-pointer opencontact">
-            <p class="hidden sm:block">Contact Me</p>
-            <svg
-              class="block sm:hidden"
-              width="20px"
-              height="20px"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              id="open-envelop"
-              class="icon glyph"
-              fill="#000000"
-            >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g
-                id="SVGRepo_tracerCarrier"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></g>
-              <g id="SVGRepo_iconCarrier">
-                <path
-                  d="M18,4v6.76l-1.55,1.08L12,14.8,8,12.13l-.43-.28L6,10.76V4A2,2,0,0,1,8,2h8A2,2,0,0,1,18,4Z"
-                  style="fill: #e0e0e0"
-                ></path>
-                <path
-                  d="M22,10.4v9.68A2,2,0,0,1,20,22H4a2,2,0,0,1-2-1.92V10.4l.13.09.7.49L4,11.79,6.45,13.5l5,3.33a.2.2,0,0,0,.08,0h0a.35.35,0,0,0,.14.06l0,0h.06a.82.82,0,0,0,.44,0h.06l0,0a.35.35,0,0,0,.14-.06h0a.2.2,0,0,0,.08,0l5-3.33h0L20,11.8,21.18,11l.69-.49Z"
-                  style="fill: #e0e0e0"
-                ></path>
-                <polygon
-                  points="6 6.5 6 9 4.79 9.91 3.06 8.71 6 6.5"
-                  style="fill: #e0e0e0"
-                ></polygon>
-                <polygon
-                  points="20.94 8.71 19.21 9.91 18 9 18 6.5 20.94 8.71"
-                  style="fill: #e0e0e0"
-                ></polygon>
-              </g>
-            </svg>
-          </button>
-        </div>
-      </nav>
-    </header>
-    <main
-      class="z-10 relative xl:px-80 lg:px-60 md:px-30 sm:px-15 px-4 pt-10 sm:pt-20"
-    >
-      <section class="fade-in">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pratik Grx</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="text-[#E0E0E0] bg-black font-medium relative font-['Montserrat',sans-serif]">
+  <video autoplay muted loop playsinline class="fixed inset-0 w-screen h-screen object-cover -z-10">
+    <source src="back.mp4" type="video/mp4" />
+  </video>
+
+  <div class="absolute inset-0 z-0 backdrop-blur-[4px]"></div>
+  <div id="loader" class="fixed inset-0 bg-black flex items-center justify-center z-50">
+    <div class="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+  </div>
+  <header class="relative z-10 fade-top">
+    <nav>
+      <div class="flex justify-between p-4 font-bold">
+        <div>Pratik Grx</div>
+        <button class="hover:cursor-pointer opencontact">
+          <p class="hidden sm:block">Contact Me</p>
+          <svg class="block sm:hidden" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+            id="open-envelop" class="icon glyph" fill="#000000">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path d="M18,4v6.76l-1.55,1.08L12,14.8,8,12.13l-.43-.28L6,10.76V4A2,2,0,0,1,8,2h8A2,2,0,0,1,18,4Z"
+                style="fill: #e0e0e0"></path>
+              <path
+                d="M22,10.4v9.68A2,2,0,0,1,20,22H4a2,2,0,0,1-2-1.92V10.4l.13.09.7.49L4,11.79,6.45,13.5l5,3.33a.2.2,0,0,0,.08,0h0a.35.35,0,0,0,.14.06l0,0h.06a.82.82,0,0,0,.44,0h.06l0,0a.35.35,0,0,0,.14-.06h0a.2.2,0,0,0,.08,0l5-3.33h0L20,11.8,21.18,11l.69-.49Z"
+                style="fill: #e0e0e0"></path>
+              <polygon points="6 6.5 6 9 4.79 9.91 3.06 8.71 6 6.5" style="fill: #e0e0e0"></polygon>
+              <polygon points="20.94 8.71 19.21 9.91 18 9 18 6.5 20.94 8.71" style="fill: #e0e0e0"></polygon>
+            </g>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main class="z-10 relative xl:px-80 lg:px-60 md:px-30 sm:px-15 px-4 pt-10 sm:pt-20">
+    <section class="fade-in">
+      <div>
         <div>
-          <div>
-            <img
-              src="images\pratikgrxlogo.png"
-              alt="pratik grx logo"
-              class="sm:h-20 h-16"
-            />
-          </div>
-          <h1 class="text-[#F5F5F5] font-bold text-5xl sm:text-6xl my-6">
-            Pratik Grx
-          </h1>
-          <div
-            class="grid md:grid-cols-[2fr_1fr] grid-cols-1 gap-8 items-center"
-          >
-            <div class="flex flex-col gap-2">
-              <h2 class="sm:text-4xl text-3xl font-bold">
-                Front End Developer
-              </h2>
-              <p class="text-[#B4B4B4]">
-                I'm a front-end developer passionate about creating clean,
-                responsive, and user-friendly websites. I enjoy turning ideas
-                into functional designs that work seamlessly across devices.
-              </p>
-              <p class="text-[#B4B4B4]">
-                Skilled in HTML, CSS, JavaScript, and Tailwind CSS, I'm always
-                exploring new ways to build smooth and engaging web experiences.
-              </p>
-            </div>
-            <div
-              class="relative lightboxopener group/seepic hover:cursor-pointer"
-            >
-              <img
-              
-                src="images/profilepic.png"
-                alt="profile picture"
-                class="w-full"
-              />
-              <div
-                class="absolute bottom-0 left-0 right-0 bg-gradient-to-b from-black/20 to-black h-0 py-0 sm:group-hover/seepic:h-auto sm:group-hover/seepic:py-2 overflow-hidden duration-200 backdrop-blur-xs rounded-t-2xl text-lg flex gap-1 items-center justify-center"
-              >
-                Full Screen<svg
-                  fill="#E0E0E0"
-                  width="20px"
-                  height="20px"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g
-                    id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></g>
-                  <g id="SVGRepo_iconCarrier">
-                    <path
-                      fill-rule="evenodd"
-                      d="M5,2 L7,2 C7.55228475,2 8,2.44771525 8,3 C8,3.51283584 7.61395981,3.93550716 7.11662113,3.99327227 L7,4 L5,4 C4.48716416,4 4.06449284,4.38604019 4.00672773,4.88337887 L4,5 L4,19 C4,19.5128358 4.38604019,19.9355072 4.88337887,19.9932723 L5,20 L19,20 C19.5128358,20 19.9355072,19.6139598 19.9932723,19.1166211 L20,19 L20,17 C20,16.4477153 20.4477153,16 21,16 C21.5128358,16 21.9355072,16.3860402 21.9932723,16.8833789 L22,17 L22,19 C22,20.5976809 20.75108,21.9036609 19.1762728,21.9949073 L19,22 L5,22 C3.40231912,22 2.09633912,20.75108 2.00509269,19.1762728 L2,19 L2,5 C2,3.40231912 3.24891996,2.09633912 4.82372721,2.00509269 L5,2 L7,2 L5,2 Z M21,2 L21.081,2.003 L21.2007258,2.02024007 L21.2007258,2.02024007 L21.3121425,2.04973809 L21.3121425,2.04973809 L21.4232215,2.09367336 L21.5207088,2.14599545 L21.5207088,2.14599545 L21.6167501,2.21278596 L21.7071068,2.29289322 L21.7071068,2.29289322 L21.8036654,2.40469339 L21.8036654,2.40469339 L21.8753288,2.5159379 L21.9063462,2.57690085 L21.9063462,2.57690085 L21.9401141,2.65834962 L21.9401141,2.65834962 L21.9641549,2.73400703 L21.9641549,2.73400703 L21.9930928,2.8819045 L21.9930928,2.8819045 L22,3 L22,3 L22,9 C22,9.55228475 21.5522847,10 21,10 C20.4477153,10 20,9.55228475 20,9 L20,5.414 L13.7071068,11.7071068 C13.3466228,12.0675907 12.7793918,12.0953203 12.3871006,11.7902954 L12.2928932,11.7071068 C11.9324093,11.3466228 11.9046797,10.7793918 12.2097046,10.3871006 L12.2928932,10.2928932 L18.584,4 L15,4 C14.4477153,4 14,3.55228475 14,3 C14,2.44771525 14.4477153,2 15,2 L21,2 Z"
-                    ></path>
-                  </g>
-                </svg>
-              </div>
-            </div>
-          </div>
+          <img src="images\pratikgrxlogo.png" alt="pratik grx logo" class="sm:h-20 h-16" />
         </div>
-      </section>
-      <div
-        class="hidden lightbox fixed inset-0 z-20 backdrop-blur-xl flex justify-center"
-      >
-        <div
-          class="md:py-20 sm:py-10 md:px-0 sm:px-30 px-10 py-2 items-center relative w-screen flex justify-center"
-        >
-          <div class="absolute inset-0 closelightbox z-[5]"></div>
-          <button
-            class="absolute closelightbox top-8 right-8 p-4 hover:cursor-pointer z-10"
-          >
-            <svg
-              width="20px"
-              height="20px"
-              viewBox="0 0 1024 1024"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="#000000"
-            >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g
-                id="SVGRepo_tracerCarrier"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></g>
-              <g id="SVGRepo_iconCarrier">
-                <path
-                  fill="#E0E0E0"
-                  d="M195.2 195.2a64 64 0 0 1 90.496 0L512 421.504 738.304 195.2a64 64 0 0 1 90.496 90.496L602.496 512 828.8 738.304a64 64 0 0 1-90.496 90.496L512 602.496 285.696 828.8a64 64 0 0 1-90.496-90.496L421.504 512 195.2 285.696a64 64 0 0 1 0-90.496z"
-                ></path>
-              </g>
-            </svg>
-          </button>
-          <img
-          id="lightboximg"
-            src="images/profilepic.png"
-            alt=""
-            class="md:h-full relative z-[10] opacity-0 transition-opacity duration-600"
-          />
+        <h1 class="text-[#F5F5F5] font-bold text-5xl sm:text-6xl my-6">
+          Pratik Grx
+        </h1>
+        <div class="grid md:grid-cols-[2fr_1fr] grid-cols-1 gap-8 items-center">
+          <div class="flex flex-col gap-2">
+            <h2 class="sm:text-4xl text-3xl font-bold">
+              Front End Developer
+            </h2>
+            <p class="text-[#B4B4B4]">
+              I'm a front-end developer passionate about creating clean,
+              responsive, and user-friendly websites. I enjoy turning ideas
+              into functional designs that work seamlessly across devices.
+            </p>
+            <p class="text-[#B4B4B4]">
+              Skilled in HTML, CSS, JavaScript, and Tailwind CSS, I'm always
+              exploring new ways to build smooth and engaging web experiences.
+            </p>
+          </div>
+          <div class="relative lightboxopener group/seepic hover:cursor-pointer">
+            <img src="images/profilepic.png" alt="profile picture" class="w-full" />
+            <div
+              class="absolute bottom-0 left-0 right-0 bg-gradient-to-b from-black/20 to-black h-0 py-0 sm:group-hover/seepic:h-auto sm:group-hover/seepic:py-2 overflow-hidden duration-200 backdrop-blur-xs rounded-t-2xl text-lg flex gap-1 items-center justify-center">
+              Full Screen<svg fill="#E0E0E0" width="20px" height="20px" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path fill-rule="evenodd"
+                    d="M5,2 L7,2 C7.55228475,2 8,2.44771525 8,3 C8,3.51283584 7.61395981,3.93550716 7.11662113,3.99327227 L7,4 L5,4 C4.48716416,4 4.06449284,4.38604019 4.00672773,4.88337887 L4,5 L4,19 C4,19.5128358 4.38604019,19.9355072 4.88337887,19.9932723 L5,20 L19,20 C19.5128358,20 19.9355072,19.6139598 19.9932723,19.1166211 L20,19 L20,17 C20,16.4477153 20.4477153,16 21,16 C21.5128358,16 21.9355072,16.3860402 21.9932723,16.8833789 L22,17 L22,19 C22,20.5976809 20.75108,21.9036609 19.1762728,21.9949073 L19,22 L5,22 C3.40231912,22 2.09633912,20.75108 2.00509269,19.1762728 L2,19 L2,5 C2,3.40231912 3.24891996,2.09633912 4.82372721,2.00509269 L5,2 L7,2 L5,2 Z M21,2 L21.081,2.003 L21.2007258,2.02024007 L21.2007258,2.02024007 L21.3121425,2.04973809 L21.3121425,2.04973809 L21.4232215,2.09367336 L21.5207088,2.14599545 L21.5207088,2.14599545 L21.6167501,2.21278596 L21.7071068,2.29289322 L21.7071068,2.29289322 L21.8036654,2.40469339 L21.8036654,2.40469339 L21.8753288,2.5159379 L21.9063462,2.57690085 L21.9063462,2.57690085 L21.9401141,2.65834962 L21.9401141,2.65834962 L21.9641549,2.73400703 L21.9641549,2.73400703 L21.9930928,2.8819045 L21.9930928,2.8819045 L22,3 L22,3 L22,9 C22,9.55228475 21.5522847,10 21,10 C20.4477153,10 20,9.55228475 20,9 L20,5.414 L13.7071068,11.7071068 C13.3466228,12.0675907 12.7793918,12.0953203 12.3871006,11.7902954 L12.2928932,11.7071068 C11.9324093,11.3466228 11.9046797,10.7793918 12.2097046,10.3871006 L12.2928932,10.2928932 L18.584,4 L15,4 C14.4477153,4 14,3.55228475 14,3 C14,2.44771525 14.4477153,2 15,2 L21,2 Z">
+                  </path>
+                </g>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
-      <hr class="sm:my-20 my-16 border-[#5C5959]" />
-      <section class="fade-in">
-        <div class="grid sm:grid-cols-3 gap-8 grid-cols-2">
-          <div class="flex flex-col gap-3">
-            <div class="flex items-center">
-              <p class="text-3xl font-bold duration-600" id="counter1"></p>
-              <svg
-                class="h-6 w-6"
-                viewBox="0 0 24.00 24.00"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  <path
-                    d="M6 12H18M12 6V18"
-                    stroke="#E0E0E0"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></path>
-                </g>
-              </svg>
-            </div>
-            <p>Hours of Coding</p>
-          </div>
-          <div class="flex flex-col gap-3">
-            <div class="flex items-center">
-              <p class="text-3xl font-bold" id="counter2"></p>
-              <svg
-                class="h-6 w-6"
-                viewBox="0 0 24.00 24.00"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  <path
-                    d="M6 12H18M12 6V18"
-                    stroke="#E0E0E0"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></path>
-                </g>
-              </svg>
-            </div>
-            <p>Practice Projects</p>
-          </div>
-          <div class="flex flex-col gap-3">
-            <svg
-              width="30"
-              height="30"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M10 15.5C9.3627 16.603 8.99715 17 7.49786 17C5.49881 17 3 15.4038 3 12.7143C3 9.71425 4.72398 8.00004 7.49786 8C12.058 7.99993 11.496 17 16.4936 17C19.5997 17 20.8679 14.9635 20.9914 12.7143C21.122 10.3382 19.7654 8 16.4936 8C14.4945 8 14.1091 8.42857 13.5 9.5"
-                stroke="#E0E0E0"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-dasharray="200"
-                stroke-dashoffset="200"
-              >
-                <animate
-                  id="lineAnimation"
-                  attributeName="stroke-dashoffset"
-                  from="200"
-                  to="0"
-                  dur="10s"
-                  fill="freeze"
-                  begin="indefinite"
-                />
+    </section>
+    <div class="hidden lightbox fixed inset-0 z-20 backdrop-blur-xl flex justify-center">
+      <div class="md:py-20 sm:py-10 md:px-0 sm:px-30 px-10 py-2 items-center relative w-screen flex justify-center">
+        <div class="absolute inset-0 closelightbox z-[5]"></div>
+        <button class="absolute closelightbox top-8 right-8 p-4 hover:cursor-pointer z-10">
+          <svg width="20px" height="20px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path fill="#E0E0E0"
+                d="M195.2 195.2a64 64 0 0 1 90.496 0L512 421.504 738.304 195.2a64 64 0 0 1 90.496 90.496L602.496 512 828.8 738.304a64 64 0 0 1-90.496 90.496L512 602.496 285.696 828.8a64 64 0 0 1-90.496-90.496L421.504 512 195.2 285.696a64 64 0 0 1 0-90.496z">
               </path>
+            </g>
+          </svg>
+        </button>
+        <img id="lightboximg" src="images/profilepic.png" alt=""
+          class="md:h-full relative z-[10] opacity-0 transition-opacity duration-600" />
+      </div>
+    </div>
+    <hr class="sm:my-20 my-16 border-[#5C5959]" />
+    <section class="fade-in">
+      <div class="grid sm:grid-cols-3 gap-8 grid-cols-2">
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center">
+            <p class="text-3xl font-bold duration-600" id="counter1"></p>
+            <svg class="h-6 w-6" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path d="M6 12H18M12 6V18" stroke="#E0E0E0" stroke-width="3" stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </g>
             </svg>
-            <p>Always Learning</p>
           </div>
+          <p>Hours of Coding</p>
         </div>
-      </section>
-      <hr class="sm:my-20 my-16 border-[#5C5959]" />
-      <section class="fade-in">
-        <h2 class="text-2xl font-bold">Skills</h2>
-        <div class="relative w-fit">
-          <div class="flex items-center gap-4 pt-2 pb-4 relative">
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center">
+            <p class="text-3xl font-bold" id="counter2"></p>
+            <svg class="h-6 w-6" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path d="M6 12H18M12 6V18" stroke="#E0E0E0" stroke-width="3" stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </g>
+            </svg>
+          </div>
+          <p>Practice Projects</p>
+        </div>
+        <div class="flex flex-col gap-3">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M10 15.5C9.3627 16.603 8.99715 17 7.49786 17C5.49881 17 3 15.4038 3 12.7143C3 9.71425 4.72398 8.00004 7.49786 8C12.058 7.99993 11.496 17 16.4936 17C19.5997 17 20.8679 14.9635 20.9914 12.7143C21.122 10.3382 19.7654 8 16.4936 8C14.4945 8 14.1091 8.42857 13.5 9.5"
+              stroke="#E0E0E0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="200"
+              stroke-dashoffset="200">
+              <animate id="lineAnimation" attributeName="stroke-dashoffset" from="200" to="0" dur="10s" fill="freeze"
+                begin="indefinite" />
+            </path>
+          </svg>
+          <p>Always Learning</p>
+        </div>
+      </div>
+    </section>
+    <hr class="sm:my-20 my-16 border-[#5C5959]" />
+    <section class="fade-in">
+      <h2 class="text-2xl font-bold">Skills</h2>
+      <div class="relative w-fit">
+        <div class="flex items-center gap-4 pt-2 pb-4 relative">
+          <div class="tab flex items-center gap-1 px-1 cursor-pointer text-[#6E6D6D]">
+            <svg fill="currentColor" width="18px" height="18px" viewBox="0 0 32 32" version="1.1"
+              xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <title>suitcase2</title>
+                <path
+                  d="M28 29h-24c-1.104 0-2-0.896-2-2v-9h4v3h4v-3h12v3h4v-3h4v9c0 1.104-0.896 2-2 2zM23 20v-4h2v4h-2zM7 20v-4h2v4h-2zM26 15h-4v2h-12v-2h-4v2h-4v-7c0-1.104 0.896-2 2-2h24c1.104 0 2 0.896 2 2v7h-4v-2zM19 4.979h-6v2.021h-2v-0.979h1v-3.021h8.021v3h0.979v1h-2v-2.021z">
+                </path>
+              </g>
+            </svg>
+            Expertise
+          </div>
+          <div class="tab flex items-center gap-1 px-1 cursor-pointer text-[#6E6D6D]">
+            <svg fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 256 241"
+              enable-background="new 0 0 256 241" xml:space="preserve" stroke="#E0E0E0">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M254,188V2H2v186h111v29H75v22h106v-22h-38v-29H254z M19,19h217v151H19L19,19z M129.227,67.814v-7.326l-7.679-1.297 c-0.567-2.51-1.557-4.862-2.891-6.977l4.514-6.345l-5.183-5.183l-6.345,4.514c-2.11-1.334-4.463-2.32-6.977-2.891l-1.292-7.675 h-7.331l-1.292,7.675c-2.515,0.572-4.867,1.557-6.977,2.891l-6.345-4.514l-5.183,5.183l4.514,6.345 c-1.334,2.115-2.324,4.467-2.891,6.977l-7.679,1.297v7.326l7.679,1.292c0.567,2.515,1.557,4.867,2.891,6.982l-4.514,6.345 l5.183,5.178l6.345-4.514c2.11,1.334,4.463,2.324,6.977,2.891l1.292,7.679h7.331l1.292-7.679c2.515-0.567,4.867-1.557,6.977-2.891 l6.345,4.514l5.183-5.178l-4.514-6.345c1.334-2.115,2.324-4.467,2.891-6.982L129.227,67.814z M99.705,75.8 c-6.429,0-11.644-5.216-11.644-11.649s5.216-11.649,11.644-11.649c6.433,0,11.649,5.216,11.649,11.649 C111.354,70.585,106.138,75.8,99.705,75.8z M180.239,109.829l8.949-5.554l-3.754-9.172l-10.275,2.313 c-1.939-2.77-4.354-5.232-7.191-7.255l2.4-10.254l-9.14-3.831l-5.629,8.899c-3.431-0.605-6.881-0.601-10.215-0.042l-5.554-8.949 l-9.172,3.754l2.313,10.275c-2.77,1.939-5.232,4.354-7.255,7.191l-10.254-2.4l-3.831,9.14l8.899,5.629 c-0.605,3.431-0.601,6.881-0.042,10.215l-8.949,5.554l3.754,9.172l10.275-2.313c1.939,2.77,4.354,5.232,7.191,7.255l-2.4,10.254 l9.14,3.831l5.629-8.899c3.431,0.605,6.881,0.601,10.215,0.042l5.554,8.948l9.172-3.754l-2.313-10.275 c2.77-1.939,5.232-4.354,7.255-7.191l10.254,2.4l3.831-9.14l-8.899-5.629C180.801,116.613,180.798,113.164,180.239,109.829z M164.892,120.9c-3.364,8.024-12.595,11.802-20.619,8.438s-11.802-12.595-8.438-20.619s12.595-11.802,20.619-8.438 S168.255,112.876,164.892,120.9z M91.746,119.725c0,2.982-2.417,5.399-5.399,5.399c-2.979,0-5.396-2.417-5.396-5.399 s2.417-5.399,5.396-5.399C89.328,114.326,91.746,116.743,91.746,119.725z M105.883,122.149v-4.848l-5.082-0.858 c-0.375-1.661-1.031-3.218-1.913-4.617l2.987-4.199l-3.43-3.43l-4.199,2.987c-1.397-0.883-2.953-1.535-4.617-1.913l-0.855-5.079 h-4.851l-0.855,5.079c-1.664,0.378-3.221,1.031-4.617,1.913l-4.199-2.987l-3.43,3.43l2.987,4.199 c-0.883,1.4-1.538,2.956-1.913,4.617l-5.082,0.858v4.848l5.082,0.855c0.375,1.664,1.031,3.221,1.913,4.62l-2.987,4.199l3.43,3.427 l4.199-2.987c1.397,0.883,2.953,1.538,4.617,1.913l0.855,5.082h4.851l0.855-5.082c1.664-0.375,3.221-1.031,4.617-1.913l4.199,2.987 l3.43-3.427l-2.987-4.199c0.883-1.4,1.538-2.956,1.913-4.62L105.883,122.149z">
+                </path>
+              </g>
+            </svg>
+            Software
+          </div>
+          <div class="tab flex items-center gap-1 px-1 cursor-pointer text-[#6E6D6D]">
+            <svg width="18px" height="18px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <title>language_xml</title>
+                <rect width="24" height="24" fill="none"></rect>
+                <path
+                  d="M12.89,3l2,.4L11.11,21l-2-.4L12.89,3m6.7,9L16,8.41V5.58L22.42,12,16,18.41V15.58L19.59,12m-18,0L8,5.58V8.41L4.41,12,8,15.58v2.83Z">
+                </path>
+              </g>
+            </svg>
+            Language
+          </div>
+
+          <!-- underline -->
+          <div id="underline" class="absolute bottom-2 h-0.5 bg-[#E0E0E0] transition-all duration-300"></div>
+        </div>
+      </div>
+      <div class="">
+        <ul
+          class="grid tab-content opacity-0 hidden transition-opacity duration-500 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2">
+          <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">
+            <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+              stroke="#000000">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path d="M22 12C22 6.48 17.52 2 12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22" stroke="#E0E0E0"
+                  stroke-width="0.984" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M7.99998 3H8.99998C7.04998 8.84 7.04998 15.16 8.99998 21H7.99998" stroke="#E0E0E0"
+                  stroke-width="0.984" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M15 3C15.97 5.92 16.46 8.96 16.46 12" stroke="#E0E0E0" stroke-width="0.984"
+                  stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M3 16V15C5.92 15.97 8.96 16.46 12 16.46" stroke="#E0E0E0" stroke-width="0.984"
+                  stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M3 9.0001C8.84 7.0501 15.16 7.0501 21 9.0001" stroke="#E0E0E0" stroke-width="0.984"
+                  stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M19.21 15.74L15.67 19.2801C15.53 19.4201 15.4 19.68 15.37 19.87L15.18 21.22C15.11 21.71 15.45 22.05 15.94 21.98L17.29 21.79C17.48 21.76 17.75 21.63 17.88 21.49L21.42 17.95C22.03 17.34 22.32 16.63 21.42 15.73C20.53 14.84 19.82 15.13 19.21 15.74Z"
+                  stroke="#E0E0E0" stroke-width="0.984" stroke-miterlimit="10" stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <path d="M18.7 16.25C19 17.33 19.84 18.17 20.92 18.47" stroke="#E0E0E0" stroke-width="0.984"
+                  stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+              </g>
+            </svg>
+            Web Development
+          </li>
+          <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">
+            <svg fill="#E0E0E0" width="18px" height="18px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M20,12v8a3,3,0,0,1-3,3H5a3,3,0,0,1-3-3V4A3,3,0,0,1,5,1h7a1,1,0,0,1,0,2H5A1,1,0,0,0,4,4V20a1,1,0,0,0,1,1H17a1,1,0,0,0,1-1V12a1,1,0,0,1,2,0ZM10,18a1,1,0,1,0,1-1A1,1,0,0,0,10,18ZM23,4.6V5.4a.4.4,0,0,1-.4.4h-.628a.416.416,0,0,0-.38.269l0,.006a.415.415,0,0,0,.08.458l.444.444a.4.4,0,0,1,0,.571l-.561.561a.4.4,0,0,1-.571,0l-.444-.444a.415.415,0,0,0-.458-.08l-.006,0a.414.414,0,0,0-.269.38V8.6a.4.4,0,0,1-.4.4H18.6a.4.4,0,0,1-.4-.4V7.968a.414.414,0,0,0-.269-.38l-.006,0a.415.415,0,0,0-.458.08l-.444.444a.4.4,0,0,1-.571,0l-.561-.561a.4.4,0,0,1,0-.571l.444-.444a.415.415,0,0,0,.08-.458l0-.006a.416.416,0,0,0-.38-.269H15.4a.4.4,0,0,1-.4-.4V4.6a.4.4,0,0,1,.4-.4h.628a.415.415,0,0,0,.38-.27l0-.005a.415.415,0,0,0-.08-.458l-.444-.444a.4.4,0,0,1,0-.571l.561-.561a.4.4,0,0,1,.571,0l.444.444a.413.413,0,0,0,.458.079l.006,0a.416.416,0,0,0,.269-.38V1.4a.4.4,0,0,1,.4-.4H19.4a.4.4,0,0,1,.4.4v.628a.416.416,0,0,0,.269.38l.006,0a.413.413,0,0,0,.458-.079l.444-.444a.4.4,0,0,1,.571,0l.561.561a.4.4,0,0,1,0,.571l-.444.444a.415.415,0,0,0-.08.458l0,.005a.415.415,0,0,0,.38.27H22.6A.4.4,0,0,1,23,4.6ZM20.2,5A1.2,1.2,0,1,0,19,6.2,1.2,1.2,0,0,0,20.2,5Z">
+                </path>
+              </g>
+            </svg>
+            Responsive Websites
+          </li>
+          <li class="p-2 bg-[#1C1C1C] flex items-center gap-1"><svg fill="#E0E0E0" width="18px" height="18px"
+              viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <title>react</title>
+                <path
+                  d="M14.313 22.211c0.55 0.025 1.112 0.043 1.681 0.043 0.575 0 1.143-0.012 1.7-0.043-0.557 0.72-1.107 1.357-1.689 1.964l0.008-0.008c-0.579-0.6-1.135-1.238-1.659-1.902l-0.041-0.054zM8.615 21.411c1.083 0.275 2.404 0.509 3.752 0.653l0.131 0.011c0.825 1.133 1.659 2.13 2.554 3.068l-0.011-0.012c-1.311 1.463-3.080 2.491-5.081 2.86l-0.055 0.008c-0.004 0-0.008 0-0.012 0-0.248 0-0.482-0.061-0.687-0.169l0.008 0.004c-0.832-0.475-1.193-2.292-0.912-4.627 0.067-0.575 0.177-1.18 0.312-1.797zM23.398 21.398c0.118 0.474 0.229 1.078 0.308 1.692l0.009 0.086c0.287 2.334-0.067 4.149-0.892 4.634-0.184 0.102-0.404 0.162-0.638 0.162-0.023 0-0.046-0.001-0.069-0.002l0.003 0c-2.053-0.375-3.821-1.396-5.129-2.841l-0.007-0.008c0.879-0.923 1.707-1.918 2.466-2.965l0.058-0.084c1.476-0.154 2.799-0.392 4.088-0.717l-0.197 0.042zM9.784 17.666c0.25 0.49 0.512 0.978 0.8 1.468q0.431 0.731 0.881 1.428c-0.868-0.127-1.706-0.287-2.507-0.482 0.225-0.787 0.507-1.602 0.825-2.416zM22.212 17.641c0.331 0.821 0.612 1.64 0.845 2.434-0.8 0.196-1.645 0.362-2.519 0.487 0.3-0.469 0.6-0.952 0.881-1.447 0.281-0.487 0.544-0.985 0.795-1.475zM7.619 12.292c0.436 1.478 0.904 2.714 1.449 3.906l-0.075-0.182c-0.466 1.005-0.927 2.234-1.305 3.499l-0.052 0.205c-0.706-0.217-1.274-0.43-1.827-0.669l0.115 0.044c-2.164-0.921-3.564-2.132-3.564-3.092s1.4-2.177 3.564-3.094c0.525-0.225 1.1-0.428 1.694-0.617zM24.358 12.287c0.605 0.187 1.18 0.396 1.718 0.622 2.164 0.925 3.564 2.134 3.564 3.094-0.006 0.96-1.406 2.174-3.57 3.093-0.525 0.225-1.1 0.427-1.693 0.616-0.44-1.483-0.908-2.718-1.451-3.912l0.076 0.188c0.464-1.004 0.926-2.233 1.303-3.498l0.053-0.206zM20.53 11.444c0.869 0.129 1.706 0.287 2.507 0.484-0.225 0.79-0.506 1.602-0.825 2.416-0.25-0.487-0.512-0.978-0.8-1.467-0.281-0.49-0.581-0.967-0.881-1.432zM11.458 11.444c-0.3 0.471-0.6 0.953-0.88 1.45-0.281 0.487-0.544 0.977-0.794 1.467-0.331-0.82-0.612-1.637-0.845-2.433 0.8-0.187 1.643-0.354 2.518-0.482zM16 11.126c0.925 0 1.846 0.042 2.752 0.116q0.761 1.091 1.478 2.324 0.697 1.2 1.272 2.432c-0.385 0.819-0.807 1.637-1.266 2.437-0.475 0.825-0.966 1.61-1.475 2.337-0.91 0.079-1.832 0.122-2.762 0.122-0.925 0-1.846-0.044-2.752-0.116-0.507-0.727-1.002-1.505-1.478-2.324q-0.697-1.2-1.272-2.432c0.379-0.821 0.807-1.641 1.266-2.442 0.475-0.825 0.966-1.607 1.475-2.334 0.91-0.080 1.832-0.122 2.762-0.122zM15.981 7.845c0.58 0.6 1.136 1.237 1.659 1.901l0.040 0.053c-0.55-0.025-1.112-0.042-1.681-0.042-0.575 0-1.143 0.012-1.7 0.042 0.556-0.72 1.106-1.357 1.689-1.964l-0.008 0.008zM9.88 4.033c2.053 0.376 3.82 1.397 5.129 2.841l0.007 0.008c-0.879 0.924-1.707 1.919-2.466 2.968l-0.058 0.084c-1.475 0.153-2.798 0.389-4.086 0.714l0.196-0.042c-0.14-0.612-0.244-1.205-0.317-1.774-0.287-2.334 0.067-4.149 0.892-4.632 0.206-0.097 0.447-0.157 0.701-0.165l0.003-0zM22.090 4.008v0.008c0.013-0 0.028-0.001 0.044-0.001 0.239 0 0.464 0.059 0.662 0.163l-0.008-0.004c0.832 0.477 1.193 2.293 0.912 4.629-0.067 0.575-0.177 1.181-0.312 1.799-1.085-0.278-2.406-0.513-3.754-0.656l-0.128-0.011c-0.826-1.134-1.66-2.131-2.555-3.070l0.012 0.012c1.311-1.46 3.077-2.488 5.074-2.859l0.056-0.009zM22.096 2.646c-2.442 0.371-4.556 1.557-6.1 3.268l-0.008 0.009c-1.555-1.71-3.669-2.888-6.051-3.245l-0.056-0.007c-0.013-0-0.029-0-0.045-0-0.491 0-0.952 0.129-1.351 0.355l0.014-0.007c-1.718 0.991-2.103 4.079-1.216 7.954-3.804 1.175-6.278 3.053-6.278 5.032 0 1.987 2.487 3.87 6.302 5.036-0.88 3.89-0.487 6.983 1.235 7.973 0.378 0.217 0.832 0.344 1.315 0.344 0.022 0 0.044-0 0.065-0.001l-0.003 0c2.442-0.371 4.556-1.558 6.1-3.27l0.008-0.009c1.555 1.711 3.669 2.889 6.051 3.246l0.056 0.007c0.015 0 0.034 0 0.052 0 0.488 0 0.947-0.128 1.344-0.351l-0.014 0.007c1.717-0.99 2.103-4.078 1.216-7.954 3.79-1.165 6.264-3.047 6.264-5.029 0-1.987-2.487-3.87-6.302-5.039 0.88-3.886 0.487-6.982-1.235-7.973-0.382-0.219-0.84-0.348-1.328-0.348-0.013 0-0.026 0-0.039 0l0.002-0zM18.787 16.005c0 1.543-1.251 2.794-2.794 2.794s-2.794-1.251-2.794-2.794c0-1.543 1.251-2.794 2.794-2.794 0.772 0 1.47 0.313 1.976 0.818v0c0.506 0.506 0.818 1.204 0.818 1.976 0 0 0 0 0 0v0z">
+                </path>
+              </g>
+            </svg>
+            React.js</li>
+          <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">
+            <svg width="18px" height="18px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <title>file_type_tailwind</title>
+                <path
+                  d="M9,13.7q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q11.1,10.9,9,13.7ZM2,22.1q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q4.1,19.3,2,22.1Z"
+                  style="fill: #e0e0e0"></path>
+              </g>
+            </svg>
+            Tailwind CSS
+          </li>
+          <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">
+            <svg fill="#E0E0E0" height="18px" width="18px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-267 288.9 264.5 225.1" xml:space="preserve">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <g>
+                  <path
+                    d="M-21.8,354.4c-0.8-0.9-1.3-2.3-1.2-3.5c0.9-20.1-1.8-39.6-8.6-58.6c-0.9-2.4-2-3.3-4.5-2.6c-5.6,1.7-11.4,3-16.9,5 c-15.2,5.5-29.1,13.5-42.6,22.2c-1.4,0.9-3.5,1.5-5.2,1.2c-22.1-3.9-44.3-3.7-66.5-0.3c-2.2,0.3-5-0.2-6.8-1.3 c-15.7-10.2-31.7-20.2-50-25c-15.1-4-12-4.8-16.3,8.9c-5.1,16.4-7.1,33.4-6,50.6c0.1,1.2-0.8,2.7-1.6,3.8 c-6.6,7.9-11.7,16.6-14.8,26.4c-6,19-4.8,38.2-1,57.3c7.5,37.5,32.8,63.8,70.2,70.3c19.3,3.4,39.2,3.7,57.3,5.2 c20.2-1.5,38.9-1.6,57.1-4.5c31.8-5.1,55.8-22,67.8-52.7c4.2-10.7,6.5-22.4,7.9-33.8C-0.3,397.9-4.6,374.3-21.8,354.4z M-39.5,458.8c-3.3,15.6-12.4,26.3-27.6,31.8c-14.7,5.4-29.9,7.6-45.4,8.6c-7.5,0.5-15,0.1-22.5,0.1c-20.2,0.4-40.4-0.4-59.9-6.2 c-24.5-7.3-35.5-21.9-36.2-47.5c-0.3-9.1,0.7-17.9,5-26.1c8.5-16.5,23.2-22.3,40.6-22.6c9.5-0.1,19.1,0.7,28.7,1.6 c20.1,1.8,40-0.1,60-1.2c8.8-0.5,17.8-0.7,26.4,0.8c18.5,3.2,32.5,21.6,32.8,42.3C-37.6,446.5-38.3,452.8-39.5,458.8z">
+                  </path>
+                  <path
+                    d="M-191.5,424.5c-5.5,5.7-7.4,12.9-7.7,19.3c0,9.6,2.8,17.3,7.7,22.3c6.8,6.9,16.1,6.7,22.6-0.3c9.8-10.6,9.7-30.5,0-41 C-175.4,417.7-184.9,417.6-191.5,424.5z">
+                  </path>
+                  <path
+                    d="M-99.4,423.7c-11.2,10.3-11.2,33,0,43.2c6.5,5.9,15.3,5.6,21.4-0.7c5.6-5.8,7.6-13.1,7.8-21c-0.2-7.9-2.2-15.1-7.9-20.9 C-84.2,418-93,417.8-99.4,423.7z">
+                  </path>
+                </g>
+              </g>
+            </svg>
+            Git & GitHub
+          </li>
+          <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">
+            <svg width="18px" height="18px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path fill-rule="nonzero" clip-rule="nonzero"
+                  d="M1 2.88462C1 1.84377 1.84377 1 2.88462 1H13.1154C14.1562 1 15 1.84377 15 2.88462V13.1154C15 14.1562 14.1562 15 13.1154 15H2.88462C1.84377 15 1 14.1562 1 13.1154V2.88462ZM2.88462 2.61538C2.73592 2.61538 2.61538 2.73592 2.61538 2.88462V13.1154C2.61538 13.2641 2.73592 13.3846 2.88462 13.3846H8.53846V6.38462C8.53846 5.93854 8.90008 5.57692 9.34615 5.57692C9.79223 5.57692 10.1538 5.93854 10.1538 6.38462V13.3846H13.1154C13.2641 13.3846 13.3846 13.2641 13.3846 13.1154V2.88462C13.3846 2.73592 13.2641 2.61538 13.1154 2.61538H2.88462Z"
+                  fill="#E0E0E0"></path>
+              </g>
+            </svg>
+            NPM & Packages
+          </li>
+        </ul>
+        <ul
+          class="grid tab-content opacity-0 hidden transition-opacity duration-500 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2">
+          <li class="p-2 bg-[#1C1C1C] flex items-center gap-1"><svg width="18px" height="18px" viewBox="0 0 32 32"
+              fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M21.0016 3.11679C21.0016 2.23783 20.0175 2.23782 19.5801 2.34769C20.1924 1.86426 20.9105 1.98147 21.1656 2.12796L27.079 5.02747C27.6424 5.30375 27.9998 5.8786 27.9998 6.50857V25.5831C27.9998 26.2215 27.6329 26.8025 27.058 27.0743L21.4937 29.7054C21.1109 29.8701 20.2799 30.2767 19.5801 29.7053C20.4549 29.8702 20.9287 29.2476 21.0016 28.8264V3.11679Z"
+                  fill="url(#paint0_linear_87_8101)"></path>
+                <path
+                  d="M19.6512 2.3319C20.1154 2.24017 21.0018 2.28271 21.0018 3.11685V9.68254L3.07359 23.2453C2.76022 23.4824 2.3192 23.443 2.05229 23.1542L0.204532 21.1548C-0.0849358 20.8416 -0.0646824 20.3513 0.249624 20.0633L19.5802 2.34775L19.6512 2.3319Z"
+                  fill="url(#paint1_linear_87_8101)"></path>
+                <path
+                  d="M21.0018 22.3708L3.07359 8.80801C2.76022 8.57094 2.3192 8.61028 2.05229 8.8991L0.204532 10.8985C-0.0849358 11.2117 -0.0646824 11.702 0.249624 11.9901L19.5802 29.7056C20.455 29.8704 20.9289 29.2478 21.0018 28.8266V22.3708Z"
+                  fill="url(#paint2_linear_87_8101)"></path>
+                <defs>
+                  <linearGradient id="paint0_linear_87_8101" x1="23.79" y1="2" x2="23.79" y2="30"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#c7c7c7"></stop>
+                    <stop offset="1" stop-color="#E0E0E0"></stop>
+                  </linearGradient>
+                  <linearGradient id="paint1_linear_87_8101" x1="21.0018" y1="5.53398" x2="1.0217" y2="22.3051"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#c7c7c7"></stop>
+                    <stop offset="0.270551" stop-color="#c7c7c7"></stop>
+                    <stop offset="0.421376" stop-color="#c7c7c7"></stop>
+                    <stop offset="0.618197" stop-color="#c7c7c7"></stop>
+                    <stop offset="0.855344" stop-color="#c7c7c7"></stop>
+                    <stop offset="1" stop-color="#c7c7c7"></stop>
+                  </linearGradient>
+                  <linearGradient id="paint2_linear_87_8101" x1="1.15522" y1="9.98389" x2="21.0791" y2="26.4808"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#c7c7c7"></stop>
+                    <stop offset="1" stop-color="#c7c7c7"></stop>
+                  </linearGradient>
+                </defs>
+              </g>
+            </svg>
+            VS Code</li>
+          <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">
+            <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M9.29183 21V18.4407L9.3255 16.6219C9.36595 16.0561 9.58639 15.5228 9.94907 15.11C9.95438 15.1039 9.95972 15.0979 9.9651 15.0919C9.9791 15.0763 9.96988 15.0511 9.94907 15.0485V15.0485C7.52554 14.746 5.0005 13.7227 5.0005 9.26749C4.9847 8.17021 5.3427 7.10648 6.00437 6.27215C6.02752 6.24297 6.05103 6.21406 6.07492 6.18545V6.18545C6.10601 6.1482 6.11618 6.09772 6.10194 6.05134C6.10107 6.04853 6.10021 6.04571 6.09935 6.04289C6.0832 5.9899 6.06804 5.93666 6.05388 5.88321C5.81065 4.96474 5.86295 3.98363 6.20527 3.09818C6.20779 3.09164 6.21034 3.08511 6.2129 3.07858C6.22568 3.04599 6.25251 3.02108 6.28698 3.01493V3.01493C6.50189 2.97661 7.37036 2.92534 9.03298 4.07346C9.08473 4.10919 9.13724 4.14609 9.19053 4.18418V4.18418C9.22901 4.21168 9.27794 4.22011 9.32344 4.20716C9.32487 4.20675 9.32631 4.20634 9.32774 4.20593C9.41699 4.18056 9.50648 4.15649 9.59617 4.1337C11.1766 3.73226 12.8234 3.73226 14.4038 4.1337C14.4889 4.1553 14.5737 4.17807 14.6584 4.20199C14.6602 4.20252 14.6621 4.20304 14.6639 4.20356C14.7174 4.21872 14.7749 4.20882 14.8202 4.17653V4.17653C14.8698 4.14114 14.9187 4.10679 14.967 4.07346C16.6257 2.92776 17.4894 2.9764 17.7053 3.01469V3.01469C17.7404 3.02092 17.7678 3.04628 17.781 3.07946C17.7827 3.08373 17.7843 3.08799 17.786 3.09226C18.1341 3.97811 18.1894 4.96214 17.946 5.88321C17.9315 5.93811 17.9159 5.9928 17.8993 6.04723V6.04723C17.8843 6.09618 17.8951 6.14942 17.9278 6.18875C17.9289 6.18998 17.9299 6.19121 17.9309 6.19245C17.9528 6.21877 17.9744 6.24534 17.9956 6.27215C18.6573 7.10648 19.0153 8.17021 18.9995 9.26749C18.9995 13.747 16.4565 14.7435 14.0214 15.015V15.015C14.0073 15.0165 14.001 15.0334 14.0105 15.0439C14.0141 15.0479 14.0178 15.0519 14.0214 15.0559C14.2671 15.3296 14.4577 15.6544 14.5811 16.0103C14.7101 16.3824 14.7626 16.7797 14.7351 17.1754V21"
+                  stroke="#E0E0E0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M4 17C4.36915 17.0523 4.72159 17.1883 5.03065 17.3975C5.3397 17.6068 5.59726 17.8838 5.7838 18.2078C5.94231 18.4962 6.15601 18.7504 6.41264 18.9557C6.66927 19.161 6.96379 19.3135 7.27929 19.4043C7.59478 19.4952 7.92504 19.5226 8.25112 19.485C8.5772 19.4475 8.89268 19.3457 9.17946 19.1855"
+                  stroke="#E0E0E0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </g>
+            </svg>
+            GitHub Desktop
+          </li>
+          <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">
+            <svg fill="#E0E0E0" width="18px" height="18px" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"
+              id="memory-bug">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M3 7H6V6H7V5H8V4H7V3H6V2H7V1H8V2H9V3H10V4H12V3H13V2H14V1H15V2H16V3H15V4H14V5H15V6H16V7H19V9H17V11H19V13H17V15H19V17H16V18H15V19H14V20H8V19H7V18H6V17H3V15H5V13H3V11H5V9H3V7M13 18V17H14V16H15V8H14V7H13V6H9V7H8V8H7V16H8V17H9V18H13M9 13H13V15H9V13M9 9H13V11H9V9Z">
+                </path>
+              </g>
+            </svg>
+            Chrome DevTools
+          </li>
+        </ul>
+        <ul
+          class="grid tab-content opacity-0 hidden transition-opacity duration-500 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2">
+          <li class="p-2 bg-[#1C1C1C] flex items-center gap-1"><svg fill="#E0E0E0" version="1.1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px"
+              viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <g id="c133de6af664cd4f011a55de6b0011b2">
+                  <path display="inline"
+                    d="M30.713,0.501L71.717,460.42l184.006,51.078l184.515-51.15L481.287,0.501H30.713z M395.754,109.646 l-2.567,28.596l-1.128,12.681h-0.187H256h-0.197h-79.599l5.155,57.761h74.444H256h115.723h15.201l-1.377,15.146l-13.255,148.506 l-0.849,9.523L256,413.854v0.012l-0.259,0.072l-115.547-32.078l-7.903-88.566h26.098h30.526l4.016,44.986l62.82,16.965l0.052-0.014 v-0.006l62.916-16.977l6.542-73.158H256h-0.197H129.771l-13.863-155.444l-1.351-15.131h141.247H256h141.104L395.754,109.646z">
+                  </path>
+                </g>
+              </g>
+            </svg>
+            HTML5</li>
+          <li class="p-2 bg-[#1C1C1C] flex items-center gap-1"><svg fill="#E0E0E0" version="1.1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px"
+              viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <g id="c133de6af664cd4f011a55de6b001b19">
+                  <path display="inline"
+                    d="M483.111,0.501l-42.59,461.314l-184.524,49.684L71.47,461.815L28.889,0.501H483.111z M397.29,94.302 H255.831H111.866l6.885,55.708h137.08h7.7l-7.7,3.205l-132.07,55.006l4.38,54.453l127.69,0.414l68.438,0.217l-4.381,72.606 l-64.058,18.035v-0.057l-0.525,0.146l-61.864-15.617l-3.754-45.07h-0.205H132.1h-0.202l7.511,87.007l116.423,34.429v-0.062 l0.21,0.062l115.799-33.802l15.021-172.761h-131.03h-0.323l0.323-0.14l135.83-58.071L397.29,94.302z">
+                  </path>
+                </g>
+              </g>
+            </svg>
+            CSS3</li>
+          <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">
+            <svg fill="#E0E0E0" version="1.1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 512 512"
+              enable-background="new 0 0 512 512" xml:space="preserve">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <g id="5151e0c8492e5103c096af88a51e75c7">
+                  <path display="inline" fill-rule="evenodd" clip-rule="evenodd"
+                    d="M1.008,0.5C0.438,0.583,0.48,1.27,0.521,1.958 c0,169.668,0,339.31,0,508.974c169.364,1.135,340.808,0.162,510.979,0.486c0-170.309,0-340.61,0-510.918 C341.342,0.5,171.167,0.5,1.008,0.5z M259.893,452.167c-11.822,11.919-30.478,18.938-53.429,18.938 c-37.643,0-58.543-18.34-71.884-43.711c12.842-8.2,25.966-16.122,39.344-23.795c5.456,15.262,23.886,32.42,44.683,21.857 c13.183-6.699,11.661-27.01,11.661-49.054c0-45.773,0-98.578,0-139.872c-0.042-0.688-0.083-1.375,0.482-1.458 c15.707,0,31.413,0,47.116,0c0,36.788,0,78.402,0,117.529C277.866,395.199,280.91,430.988,259.893,452.167z M470.696,409.917 c-2.674,39.884-35.243,61.063-79.17,61.188c-43.062,0.124-70.624-19.013-87.433-48.567c12.085-8.317,25.778-15.017,38.375-22.822 c10.08,15.761,27.537,30.91,53.429,28.652c16.131-1.406,34.856-14.555,24.285-34.482c-5.127-9.66-17.516-14.567-28.656-19.425 c-35.352-15.424-76.828-29.571-72.861-84.992c1.327-18.514,9.852-31.525,20.889-40.796c11.311-9.5,26.46-15.867,46.629-16.511 c36.629-1.173,56.723,15.12,70.429,37.884c-11.664,8.891-24.514,16.608-37.401,24.281c-4.229-12.995-24.644-25.658-41.772-17.969 c-7.789,3.493-14.788,13.761-10.684,26.224c3.66,11.115,18.589,17.199,30.599,22.344 C433.706,340.486,474.331,355.693,470.696,409.917z">
+                  </path>
+                </g>
+              </g>
+            </svg>
+            JavaScript (ES6+)
+          </li>
+          <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">
+
+
+
+            <svg fill="#E0E0E0" width="18px" height="18px" viewBox="0 0 32 32" version="1.1"
+              xmlns="http://www.w3.org/2000/svg" stroke="#E0E0E0">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <title>react</title>
+                <path
+                  d="M14.313 22.211c0.55 0.025 1.112 0.043 1.681 0.043 0.575 0 1.143-0.012 1.7-0.043-0.557 0.72-1.107 1.357-1.689 1.964l0.008-0.008c-0.579-0.6-1.135-1.238-1.659-1.902l-0.041-0.054zM8.615 21.411c1.083 0.275 2.404 0.509 3.752 0.653l0.131 0.011c0.825 1.133 1.659 2.13 2.554 3.068l-0.011-0.012c-1.311 1.463-3.080 2.491-5.081 2.86l-0.055 0.008c-0.004 0-0.008 0-0.012 0-0.248 0-0.482-0.061-0.687-0.169l0.008 0.004c-0.832-0.475-1.193-2.292-0.912-4.627 0.067-0.575 0.177-1.18 0.312-1.797zM23.398 21.398c0.118 0.474 0.229 1.078 0.308 1.692l0.009 0.086c0.287 2.334-0.067 4.149-0.892 4.634-0.184 0.102-0.404 0.162-0.638 0.162-0.023 0-0.046-0.001-0.069-0.002l0.003 0c-2.053-0.375-3.821-1.396-5.129-2.841l-0.007-0.008c0.879-0.923 1.707-1.918 2.466-2.965l0.058-0.084c1.476-0.154 2.799-0.392 4.088-0.717l-0.197 0.042zM9.784 17.666c0.25 0.49 0.512 0.978 0.8 1.468q0.431 0.731 0.881 1.428c-0.868-0.127-1.706-0.287-2.507-0.482 0.225-0.787 0.507-1.602 0.825-2.416zM22.212 17.641c0.331 0.821 0.612 1.64 0.845 2.434-0.8 0.196-1.645 0.362-2.519 0.487 0.3-0.469 0.6-0.952 0.881-1.447 0.281-0.487 0.544-0.985 0.795-1.475zM7.619 12.292c0.436 1.478 0.904 2.714 1.449 3.906l-0.075-0.182c-0.466 1.005-0.927 2.234-1.305 3.499l-0.052 0.205c-0.706-0.217-1.274-0.43-1.827-0.669l0.115 0.044c-2.164-0.921-3.564-2.132-3.564-3.092s1.4-2.177 3.564-3.094c0.525-0.225 1.1-0.428 1.694-0.617zM24.358 12.287c0.605 0.187 1.18 0.396 1.718 0.622 2.164 0.925 3.564 2.134 3.564 3.094-0.006 0.96-1.406 2.174-3.57 3.093-0.525 0.225-1.1 0.427-1.693 0.616-0.44-1.483-0.908-2.718-1.451-3.912l0.076 0.188c0.464-1.004 0.926-2.233 1.303-3.498l0.053-0.206zM20.53 11.444c0.869 0.129 1.706 0.287 2.507 0.484-0.225 0.79-0.506 1.602-0.825 2.416-0.25-0.487-0.512-0.978-0.8-1.467-0.281-0.49-0.581-0.967-0.881-1.432zM11.458 11.444c-0.3 0.471-0.6 0.953-0.88 1.45-0.281 0.487-0.544 0.977-0.794 1.467-0.331-0.82-0.612-1.637-0.845-2.433 0.8-0.187 1.643-0.354 2.518-0.482zM16 11.126c0.925 0 1.846 0.042 2.752 0.116q0.761 1.091 1.478 2.324 0.697 1.2 1.272 2.432c-0.385 0.819-0.807 1.637-1.266 2.437-0.475 0.825-0.966 1.61-1.475 2.337-0.91 0.079-1.832 0.122-2.762 0.122-0.925 0-1.846-0.044-2.752-0.116-0.507-0.727-1.002-1.505-1.478-2.324q-0.697-1.2-1.272-2.432c0.379-0.821 0.807-1.641 1.266-2.442 0.475-0.825 0.966-1.607 1.475-2.334 0.91-0.080 1.832-0.122 2.762-0.122zM15.981 7.845c0.58 0.6 1.136 1.237 1.659 1.901l0.040 0.053c-0.55-0.025-1.112-0.042-1.681-0.042-0.575 0-1.143 0.012-1.7 0.042 0.556-0.72 1.106-1.357 1.689-1.964l-0.008 0.008zM9.88 4.033c2.053 0.376 3.82 1.397 5.129 2.841l0.007 0.008c-0.879 0.924-1.707 1.919-2.466 2.968l-0.058 0.084c-1.475 0.153-2.798 0.389-4.086 0.714l0.196-0.042c-0.14-0.612-0.244-1.205-0.317-1.774-0.287-2.334 0.067-4.149 0.892-4.632 0.206-0.097 0.447-0.157 0.701-0.165l0.003-0zM22.090 4.008v0.008c0.013-0 0.028-0.001 0.044-0.001 0.239 0 0.464 0.059 0.662 0.163l-0.008-0.004c0.832 0.477 1.193 2.293 0.912 4.629-0.067 0.575-0.177 1.181-0.312 1.799-1.085-0.278-2.406-0.513-3.754-0.656l-0.128-0.011c-0.826-1.134-1.66-2.131-2.555-3.070l0.012 0.012c1.311-1.46 3.077-2.488 5.074-2.859l0.056-0.009zM22.096 2.646c-2.442 0.371-4.556 1.557-6.1 3.268l-0.008 0.009c-1.555-1.71-3.669-2.888-6.051-3.245l-0.056-0.007c-0.013-0-0.029-0-0.045-0-0.491 0-0.952 0.129-1.351 0.355l0.014-0.007c-1.718 0.991-2.103 4.079-1.216 7.954-3.804 1.175-6.278 3.053-6.278 5.032 0 1.987 2.487 3.87 6.302 5.036-0.88 3.89-0.487 6.983 1.235 7.973 0.378 0.217 0.832 0.344 1.315 0.344 0.022 0 0.044-0 0.065-0.001l-0.003 0c2.442-0.371 4.556-1.558 6.1-3.27l0.008-0.009c1.555 1.711 3.669 2.889 6.051 3.246l0.056 0.007c0.015 0 0.034 0 0.052 0 0.488 0 0.947-0.128 1.344-0.351l-0.014 0.007c1.717-0.99 2.103-4.078 1.216-7.954 3.79-1.165 6.264-3.047 6.264-5.029 0-1.987-2.487-3.87-6.302-5.039 0.88-3.886 0.487-6.982-1.235-7.973-0.382-0.219-0.84-0.348-1.328-0.348-0.013 0-0.026 0-0.039 0l0.002-0zM18.787 16.005c0 1.543-1.251 2.794-2.794 2.794s-2.794-1.251-2.794-2.794c0-1.543 1.251-2.794 2.794-2.794 0.772 0 1.47 0.313 1.976 0.818v0c0.506 0.506 0.818 1.204 0.818 1.976 0 0 0 0 0 0v0z">
+                </path>
+              </g>
+            </svg>Basic React.js
+          </li>
+        </ul>
+      </div>
+    </section>
+    <hr class="sm:my-20 my-16 border-[#5C5959]" />
+    <section class="fade-in">
+      <h2 class="text-2xl font-bold">Projects</h2>
+
+      <!-- Tabs -->
+      <div class="relative w-fit mb-4 project-tabs">
+        <div class="flex items-center gap-4 pt-2 pb-4 relative">
+          <div class="project-tab cursor-pointer text-[#6E6D6D] flex items-center gap-1" data-tab="feature"><svg
+              width="18px" height="18px" viewBox="-4 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+              fill="#000000">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <title>bookmark</title>
+                <desc>Created with Sketch Beta.</desc>
+                <defs> </defs>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                  <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-419.000000, -153.000000)"
+                    fill="#e0e0e0">
+                    <path
+                      d="M437,153 L423,153 C420.791,153 419,154.791 419,157 L419,179 C419,181.209 420.791,183 423,183 L430,176 L437,183 C439.209,183 441,181.209 441,179 L441,157 C441,154.791 439.209,153 437,153"
+                      id="bookmark" sketch:type="MSShapeGroup"> </path>
+                  </g>
+                </g>
+              </g>
+            </svg>Feature</div>
+          <div class="project-tab cursor-pointer text-[#6E6D6D] flex items-center gap-1" data-tab="all"> <svg
+              width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path d="M5 6H12H19M5 12H19M5 18H19" stroke="#E0E0E0" stroke-width="2" stroke-linecap="round"></path>
+              </g>
+            </svg>
+            All</div>
+          <div id="project-underline" class="absolute bottom-0 h-0.5 bg-[#E0E0E0] transition-all duration-300"></div>
+        </div>
+      </div>
+
+      <!-- ONE grid container -->
+      <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
+        <!-- Item only for Features -->
+        <div
+          class="project-item feature hover:cursor-pointer focus:scale-102 hover:scale-102 transition-transform group/feature1">
+          <div class="w-full relative">
             <div
-              class="tab flex items-center gap-1 px-1 cursor-pointer text-[#6E6D6D]"
-            >
-              Expertise
+              class="absolute inset-0 opacity-0 transition-opacity group-hover/feature1:opacity-100 group-focus/feature1:opacity-100 bg-gradient-to-b from-black/80 to-transparent">
             </div>
             <div
-              class="tab flex items-center gap-1 px-1 cursor-pointer text-[#6E6D6D]"
-            >
-              Software
+              class="absolute top-5 right-5 scale-0 transition-transform group-hover/feature1:scale-100 group-focus/feature1:scale-100">
+              <a href="https://pratikgrx.github.io/NetflixLiteDemo/">View</a>
             </div>
-            <div
-              class="tab flex items-center gap-1 px-1 cursor-pointer text-[#6E6D6D]"
-            >
-              Language
+            <img src="images/netflixprojectpic.png"
+              class="aspect-video w-full object-cover object-center" />
+          </div>
+          <div class="bg-[#1C1C1C] p-2">
+            <p class="mb-1 flex gap-1 items-center"><svg fill="#e0e0e0" width="18px" height="18px" viewBox="0 -8 72 72"
+                id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" stroke="#e0e0e0">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <title>folder</title>
+                  <path d="M38.68,9.47a5,5,0,0,0-4.45-2.7h-23a3.33,3.33,0,0,0-3.34,3.34V11.9H39.94Z"></path>
+                  <path
+                    d="M60.78,14.91H7.89v31a3.34,3.34,0,0,0,3.34,3.34H60.77a3.34,3.34,0,0,0,3.34-3.34V18.25A3.32,3.32,0,0,0,60.78,14.91Z">
+                  </path>
+                </g>
+              </svg>
+             Netflix Website Lite</p>
+            <p class="text-sm">Home page dummy with login and signup test.</p>
+            <div class="text-xs flex gap-2">
+              <p class="px-2 py-1 rounded-sm bg-[#383333]">UI Design</p>
+              <p class="px-2 py-1 rounded-sm bg-[#383333]">Authorization</p>
+              <p class="px-2 py-1 rounded-sm bg-[#383333]">Vanilla</p>
             </div>
-
-            <!-- underline -->
-            <div
-              id="underline"
-              class="absolute bottom-2 h-0.5 bg-[#E0E0E0] transition-all duration-300"
-            ></div>
           </div>
         </div>
-        <div class="">
-          <ul
-            class="grid tab-content opacity-0 hidden transition-opacity duration-500 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2"
-          >
-            <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">
-              Web Development
-            </li>
-            <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">
-              Responsive Websites
-            </li>
-            <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">React.js</li>
-            <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">
-              Tailwind CSS
-            </li>
-            <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">
-              Git & GitHub
-            </li>
-            <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">
-              NPM & Packages
-            </li>
-          </ul>
-          <ul
-            class="grid tab-content opacity-0 hidden transition-opacity duration-500 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2"
-          >
-            <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">VS Code</li>
-            <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">
-              GitHub Desktop
-            </li>
-            <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">
-              Chrome DevTools
-            </li>
-          </ul>
-          <ul
-            class="grid tab-content opacity-0 hidden transition-opacity duration-500 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2"
-          >
-            <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">HTML5</li>
-            <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">CSS3</li>
-            <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">
-              JavaScript (ES6+)
-            </li>
-            <li class="p-2 bg-[#1C1C1C] flex items-center gap-1">
-              Basic React.js
-            </li>
-          </ul>
-        </div>
-      </section>
-      <hr class="sm:my-20 my-16 border-[#5C5959]" />
-      <section class="fade-in">
-        <h2 class="text-2xl font-bold">Projects</h2>
-
-        <!-- Tabs -->
-        <div class="relative w-fit mb-4 project-tabs">
-          <div class="flex items-center gap-4 pt-2 pb-4 relative">
-            <div class="project-tab cursor-pointer text-[#6E6D6D]">Feature</div>
-            <div class="project-tab cursor-pointer text-[#6E6D6D]">All</div>
+        <div
+          class="project-item feature hover:cursor-pointer focus:scale-102 hover:scale-102 transition-transform group/feature2">
+          <div class="w-full relative">
             <div
-              id="project-underline"
-              class="absolute bottom-0 h-0.5 bg-[#E0E0E0] transition-all duration-300"
-            ></div>
+              class="absolute inset-0 opacity-0 transition-opacity group-hover/feature2:opacity-100 group-focus/feature2:opacity-100 bg-gradient-to-b from-black/80 to-transparent">
+            </div>
+            <div
+              class="absolute top-5 right-5 scale-0 transition-transform group-hover/feature2:scale-100 group-focus/feature2:scale-100">
+              <a href="https://pratik-grx3d-project.vercel.app/">View</a>
+            </div>
+            <img src="images/3dprojectpic.png"
+              class="aspect-video w-full object-cover object-center" />
+          </div>
+          <div class="bg-[#1C1C1C] p-2">
+            <p class="mb-1 flex gap-1 items-center"><svg fill="#e0e0e0" width="18px" height="18px" viewBox="0 -8 72 72"
+                id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" stroke="#e0e0e0">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <title>folder</title>
+                  <path d="M38.68,9.47a5,5,0,0,0-4.45-2.7h-23a3.33,3.33,0,0,0-3.34,3.34V11.9H39.94Z"></path>
+                  <path
+                    d="M60.78,14.91H7.89v31a3.34,3.34,0,0,0,3.34,3.34H60.77a3.34,3.34,0,0,0,3.34-3.34V18.25A3.32,3.32,0,0,0,60.78,14.91Z">
+                  </path>
+                </g>
+              </svg>
+             3d Home Page</p>
+            <p class="text-sm">Just tried 3JS, will add optimization and fill the spots.</p>
+            <div class="text-xs flex gap-2">
+              <p class="px-2 py-1 rounded-sm bg-[#383333]">UI Design</p>
+              <p class="px-2 py-1 rounded-sm bg-[#383333]">3d Test</p>
+              <p class="px-2 py-1 rounded-sm bg-[#383333]">React</p>
+            </div>
           </div>
         </div>
+        <div
+          class="project-item feature hover:cursor-pointer focus:scale-102 hover:scale-102 transition-transform group/feature3">
+          <div class="w-full relative">
+            <div
+              class="absolute inset-0 opacity-0 transition-opacity group-hover/feature3:opacity-100 group-focus/feature3:opacity-100 bg-gradient-to-b from-black/80 to-transparent">
+            </div>
+            <div
+              class="absolute top-5 right-5 scale-0 transition-transform group-hover/feature3:scale-100 group-focus/feature3:scale-100">
+              <a href="https://gaming-website-k8tt.vercel.app/">View</a>
+            </div>
+            <img src="images/gaming3dprojectpic.png"
+              class="aspect-video w-full object-cover object-center" />
+          </div>
+          <div class="bg-[#1C1C1C] p-2">
+            <p class="mb-1 flex gap-1 items-center"><svg fill="#e0e0e0" width="18px" height="18px" viewBox="0 -8 72 72"
+                id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" stroke="#e0e0e0">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <title>folder</title>
+                  <path d="M38.68,9.47a5,5,0,0,0-4.45-2.7h-23a3.33,3.33,0,0,0-3.34,3.34V11.9H39.94Z"></path>
+                  <path
+                    d="M60.78,14.91H7.89v31a3.34,3.34,0,0,0,3.34,3.34H60.77a3.34,3.34,0,0,0,3.34-3.34V18.25A3.32,3.32,0,0,0,60.78,14.91Z">
+                  </path>
+                </g>
+              </svg>
+             Gaming Advertisement Website</p>
+            <p class="text-sm">Need a lot of optimization and i just tried new things here.</p>
+            <div class="text-xs flex gap-2">
+              <p class="px-2 py-1 rounded-sm bg-[#383333]">UI Design</p>
+              <p class="px-2 py-1 rounded-sm bg-[#383333]">3d Test</p>
+              <p class="px-2 py-1 rounded-sm bg-[#383333]">React</p>
+              <p class="px-2 py-1 rounded-sm bg-[#383333]">Marketing</p>
+            </div>
+          </div>
+        </div>
+        <!-- Item for All -->
+        <div
+          class="project-item all hover:cursor-pointer focus:scale-102 hover:scale-102 transition-transform group/all1">
+          <div class="w-full relative">
+            <div
+              class="absolute inset-0 opacity-0 transition-opacity group-hover/all1:opacity-100 group-focus/all1:opacity-100 bg-gradient-to-b from-black/80 to-transparent">
+            </div>
+            <div
+              class="absolute top-5 right-5 scale-0 transition-transform group-hover/all1:scale-100 group-focus/all1:scale-100">
+              <a href="https://pratik-gurung.vercel.app/">View</a>
+            </div>
+            <img src="images/oldportfoliopic.png"
+              class="aspect-video w-full object-cover object-center" />
+          </div>
+          <div class="bg-[#1C1C1C] p-2">
+            <p class="mb-1 flex gap-1 items-center"><svg fill="#e0e0e0" width="18px" height="18px" viewBox="0 -8 72 72"
+                id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" stroke="#e0e0e0">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <title>folder</title>
+                  <path d="M38.68,9.47a5,5,0,0,0-4.45-2.7h-23a3.33,3.33,0,0,0-3.34,3.34V11.9H39.94Z"></path>
+                  <path
+                    d="M60.78,14.91H7.89v31a3.34,3.34,0,0,0,3.34,3.34H60.77a3.34,3.34,0,0,0,3.34-3.34V18.25A3.32,3.32,0,0,0,60.78,14.91Z">
+                  </path>
+                </g>
+              </svg>
+             Old Portfolio</p>
+            <p class="text-sm">First Portfolio but need a lot of improvement.</p>
+            <div class="text-xs flex gap-2">
+              <p class="px-2 py-1 rounded-sm bg-[#383333]">UI Design</p>
+              <p class="px-2 py-1 rounded-sm bg-[#383333]">Portfolio</p>
+              <p class="px-2 py-1 rounded-sm bg-[#383333]">React</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
 
-        <!-- ONE grid container -->
-        <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
-          <!-- Item only for Features -->
+    <hr class="sm:my-20 my-16 border-[#5C5959]" />
+    <section id="contactsection" class="fixed inset-0 h-screen w-screen hidden">
+      <div class="relative z-20 h-full w-full">
+        <button class="absolute top-4 left-4 md:top-10 md:left-10 z-[30] hover:cursor-pointer closecontact fade-in">
+          Go back
+        </button>
+        <video autoplay muted loop playsinline class="absolute md:block hidden inset-0 w-full object-cover z-[21]">
+          <source src="back.mp4" type="video/mp4" />
+        </video>
+        <div class="absolute inset-0 w-full h-full z-[25] md:backdrop-blur-sm backdrop-blur-2xl">
           <div
-            class="project-item feature hover:cursor-pointer focus:scale-102 hover:scale-102 transition-transform group/feature1"
-          >
-            <div class="w-full relative">
-              <div
-                class="absolute inset-0 opacity-0 transition-opacity group-hover/feature1:opacity-100 group-focus/feature1:opacity-100 bg-gradient-to-b from-black/80 to-transparent"
-              ></div>
-              <div
-                class="absolute top-5 right-5 scale-0 transition-transform group-hover/feature1:scale-100 group-focus/feature1:scale-100"
-              >
-                <a href="#">View</a>
-              </div>
-              <img
-                src="https://i.pinimg.com/1200x/bc/87/75/bc8775e0d865b16ed58d26a5bf08c23e.jpg"
-                class="aspect-video w-full object-cover object-center"
-              />
-            </div>
-            <div class="bg-[#1C1C1C] p-2">
-              <p class="mb-1">for feature</p>
-              <p class="text-sm">Project desc</p>
-              <div class="text-xs flex gap-2">
-                <p class="px-2 py-1 rounded-sm bg-[#383333]">UI Design</p>
-                <p class="px-2 py-1 rounded-sm bg-[#383333]">Motion Test</p>
-                <p class="px-2 py-1 rounded-sm bg-[#383333]">3d Test</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-item feature">
-            <img
-              src="https://i.pinimg.com/1200x/e6/b9/c1/e6b9c1decfae8e63c78edf62d1328f3f.jpg"
-              class="aspect-video w-full object-cover object-center"
-            />
-            <div class="bg-[#1C1C1C] p-2">
-              <p class="mb-1">for feature</p>
-            </div>
-          </div>
-          <div class="project-item feature">
-            <img
-              src="https://i.pinimg.com/1200x/8e/90/1f/8e901f7e4827cac9073ae2c3131d90fa.jpg"
-              class="aspect-video w-full object-cover object-center"
-            />
-            <div class="bg-[#1C1C1C] p-2">
-              <p class="mb-1">for feature</p>
-            </div>
-          </div>
-
-          <!-- Item for All -->
-          <div class="project-item all">
-            <img
-              src="https://i.pinimg.com/1200x/dc/05/25/dc0525784aad853af48b2c7b7140d81a.jpg"
-              class="aspect-video w-full object-cover object-center"
-            />
-            <div class="bg-[#1C1C1C] p-2">
-              <p class="mb-1">for all tab</p>
-            </div>
-          </div>
-          <div class="project-item all">
-            <img
-              src="https://i.pinimg.com/1200x/1b/d8/5b/1bd85b8c0e7a22b2fd4eb444c06113a3.jpg"
-              class="aspect-video w-full object-cover object-center"
-            />
-            <div class="bg-[#1C1C1C] p-2">
-              <p class="mb-1">for all tab</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <hr class="sm:my-20 my-16 border-[#5C5959]" />
-      <section
-        id="contactsection"
-        class="fixed inset-0 h-screen w-screen hidden"
-      >
-        <div class="relative z-20 h-full w-full">
-          <button
-            class="absolute top-4 left-4 md:top-10 md:left-10 z-[30] hover:cursor-pointer closecontact fade-in"
-          >
-            Go back
-          </button>
-          <video
-            autoplay
-            muted
-            loop
-            playsinline
-            class="absolute md:block hidden inset-0 w-full object-cover z-[21]"
-          >
-            <source src="back.mp4" type="video/mp4" />
-          </video>
-          <div class="absolute inset-0 w-full h-full z-[25] md:backdrop-blur-sm backdrop-blur-xl">
-            <div
-              class="grid grid-cols-1 md:grid-cols-2 items md:px-10 px-8 xl:px-60 py-20 w-full h-full items-center gap-4 md:gap-6 xl:gap-10 fade-in"
-            >
-              <aside
-                class="xl:p-10 p-4 md:p-6 bg-[#E0E0E0]/10 h-full border-[#E0E0E0]/20 border-2"
-              >
-                <h3 class="md:text-4xl text-2xl">Get in Touch</h3>
-                <div class="grid md:grid-cols-1 grid-cols-2 gap-2 md:py-10">
-                  <div>location</div>
-                  <div>gmail</div>
-                  <div>Contact</div>
-                  <div class="flex md:flex-col gap-2">
-                    <div>insta</div>
-                    <div>whatsapp</div>
-                    <div>Github</div>
-                    <div>facebook</div>
-                  </div>
+            class="grid grid-cols-1 md:grid-cols-2 items md:px-10 px-8 xl:px-60 md:py-20 py-10 w-full h-full items-center gap-4 md:gap-6 xl:gap-10 fade-in sm:text-lg text-xs">
+            <aside class="xl:p-10 p-4 md:p-6 bg-[#E0E0E0]/10 md:h-full h-auto border-[#E0E0E0]/20 border-2 rounded-md">
+              <h3 class="md:text-4xl text-2xl">Get in Touch</h3>
+              <div class="grid md:grid-cols-1 grid-cols-1 sm:grid-cols-2 sm:gap-2 gap-1 md:py-10">
+                <div class="flex items-center gap-2"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path
+                        d="M20.6211 8.45C19.5711 3.83 15.5411 1.75 12.0011 1.75C12.0011 1.75 12.0011 1.75 11.9911 1.75C8.46107 1.75 4.42107 3.82 3.37107 8.44C2.20107 13.6 5.36107 17.97 8.22107 20.72C9.28107 21.74 10.6411 22.25 12.0011 22.25C13.3611 22.25 14.7211 21.74 15.7711 20.72C18.6311 17.97 21.7911 13.61 20.6211 8.45ZM12.0011 13.46C10.2611 13.46 8.85107 12.05 8.85107 10.31C8.85107 8.57 10.2611 7.16 12.0011 7.16C13.7411 7.16 15.1511 8.57 15.1511 10.31C15.1511 12.05 13.7411 13.46 12.0011 13.46Z"
+                        fill="#e0e0e0"></path>
+                    </g>
+                  </svg> Tandi, Chitwan, Nepal</div>
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=pratikgrx06@gmail.com&su=Hello&body=This%20is%20a%20test">
+                  <div class="flex items-center gap-2"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path
+                          d="M4 18L9 12M20 18L15 12M3 8L10.225 12.8166C10.8665 13.2443 11.1872 13.4582 11.5339 13.5412C11.8403 13.6147 12.1597 13.6147 12.4661 13.5412C12.8128 13.4582 13.1335 13.2443 13.775 12.8166L21 8M6.2 19H17.8C18.9201 19 19.4802 19 19.908 18.782C20.2843 18.5903 20.5903 18.2843 20.782 17.908C21 17.4802 21 16.9201 21 15.8V8.2C21 7.0799 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V15.8C3 16.9201 3 17.4802 3.21799 17.908C3.40973 18.2843 3.71569 18.5903 4.09202 18.782C4.51984 19 5.07989 19 6.2 19Z"
+                          stroke="#e0e0e0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </g>
+                    </svg> pratikgrx06@gmail.com</div>
+                </a>
+                <div class="flex items-center gap-2"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path
+                        d="M10.0376 5.31617L10.6866 6.4791C11.2723 7.52858 11.0372 8.90532 10.1147 9.8278C10.1147 9.8278 10.1147 9.8278 10.1147 9.8278C10.1146 9.82792 8.99588 10.9468 11.0245 12.9755C13.0525 15.0035 14.1714 13.8861 14.1722 13.8853C14.1722 13.8853 14.1722 13.8853 14.1722 13.8853C15.0947 12.9628 16.4714 12.7277 17.5209 13.3134L18.6838 13.9624C20.2686 14.8468 20.4557 17.0692 19.0628 18.4622C18.2258 19.2992 17.2004 19.9505 16.0669 19.9934C14.1588 20.0658 10.9183 19.5829 7.6677 16.3323C4.41713 13.0817 3.93421 9.84122 4.00655 7.93309C4.04952 6.7996 4.7008 5.77423 5.53781 4.93723C6.93076 3.54428 9.15317 3.73144 10.0376 5.31617Z"
+                        fill="#e0e0e0"></path>
+                      <path
+                        d="M13.2595 1.87983C13.3257 1.47094 13.7122 1.19357 14.1211 1.25976C14.1464 1.26461 14.2279 1.27983 14.2705 1.28933C14.3559 1.30834 14.4749 1.33759 14.6233 1.38082C14.9201 1.46726 15.3347 1.60967 15.8323 1.8378C16.8286 2.29456 18.1544 3.09356 19.5302 4.46936C20.906 5.84516 21.705 7.17097 22.1617 8.16725C22.3899 8.66487 22.5323 9.07947 22.6187 9.37625C22.6619 9.52466 22.6912 9.64369 22.7102 9.72901C22.7197 9.77168 22.7267 9.80594 22.7315 9.83125L22.7373 9.86245C22.8034 10.2713 22.5286 10.6739 22.1197 10.7401C21.712 10.8061 21.3279 10.53 21.2601 10.1231C21.258 10.1121 21.2522 10.0828 21.2461 10.0551C21.2337 9.9997 21.2124 9.91188 21.1786 9.79572C21.1109 9.56339 20.9934 9.21806 20.7982 8.79238C20.4084 7.94207 19.7074 6.76789 18.4695 5.53002C17.2317 4.29216 16.0575 3.59117 15.2072 3.20134C14.7815 3.00618 14.4362 2.88865 14.2038 2.82097C14.0877 2.78714 13.9417 2.75363 13.8863 2.7413C13.4793 2.67347 13.1935 2.28755 13.2595 1.87983Z"
+                        fill="#e0e0e0"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M13.4857 5.3293C13.5995 4.93102 14.0146 4.7004 14.4129 4.81419L14.2069 5.53534C14.4129 4.81419 14.4129 4.81419 14.4129 4.81419L14.4144 4.81461L14.4159 4.81505L14.4192 4.81602L14.427 4.81834L14.4468 4.8245C14.4618 4.82932 14.4807 4.8356 14.5031 4.84357C14.548 4.85951 14.6074 4.88217 14.6802 4.91337C14.8259 4.97581 15.0249 5.07223 15.2695 5.21694C15.7589 5.50662 16.4271 5.9878 17.2121 6.77277C17.9971 7.55775 18.4782 8.22593 18.7679 8.7154C18.9126 8.95991 19.009 9.15897 19.0715 9.30466C19.1027 9.37746 19.1254 9.43682 19.1413 9.48173C19.1493 9.50418 19.1555 9.52301 19.1604 9.53809L19.1665 9.55788L19.1688 9.56563L19.1698 9.56896L19.1702 9.5705C19.1702 9.5705 19.1707 9.57194 18.4495 9.77798L19.1707 9.57194C19.2845 9.97021 19.0538 10.3853 18.6556 10.4991C18.2607 10.6119 17.8492 10.3862 17.7313 9.99413L17.7276 9.98335C17.7223 9.96832 17.7113 9.93874 17.6928 9.89554C17.6558 9.8092 17.5887 9.66797 17.4771 9.47938C17.2541 9.10264 16.8514 8.53339 16.1514 7.83343C15.4515 7.13348 14.8822 6.73078 14.5055 6.50781C14.3169 6.39619 14.1757 6.32909 14.0893 6.29209C14.0461 6.27358 14.0165 6.26254 14.0015 6.25721L13.9907 6.25352C13.5987 6.13564 13.3729 5.72419 13.4857 5.3293Z"
+                        fill="#e0e0e0"></path>
+                    </g>
+                  </svg> +977-9815500079</div>
+                <div class="flex md:flex-col gap-2">
+                  <a href="">
+                    <div class="flex items-center gap-2"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7ZM9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12Z"
+                            fill="#e0e0e0"></path>
+                          <path
+                            d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z"
+                            fill="#e0e0e0"></path>
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5 1C2.79086 1 1 2.79086 1 5V19C1 21.2091 2.79086 23 5 23H19C21.2091 23 23 21.2091 23 19V5C23 2.79086 21.2091 1 19 1H5ZM19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z"
+                            fill="#e0e0e0"></path>
+                        </g>
+                      </svg>
+                      <p class="hidden md:block">pratik_izz_me</p>
+                    </div>
+                  </a>
+                  <a href="">
+                    <div class="flex items-center gap-2"><svg fill="#e0e0e0" width="18px" height="18px"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" stroke="#e0e0e0"
+                        stroke-width="0.00024000000000000003">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <path
+                            d="M22,6.55a12.61,12.61,0,0,0-.1-1.29,4.29,4.29,0,0,0-.37-1.08,3.66,3.66,0,0,0-.71-1,3.91,3.91,0,0,0-1-.71,4.28,4.28,0,0,0-1.08-.36A10.21,10.21,0,0,0,17.46,2H6.55a12.61,12.61,0,0,0-1.29.1,4.29,4.29,0,0,0-1.08.37,3.66,3.66,0,0,0-1,.71,3.91,3.91,0,0,0-.71,1,4.28,4.28,0,0,0-.36,1.08A10.21,10.21,0,0,0,2,6.54C2,6.73,2,7,2,7.08v9.84c0,.11,0,.35,0,.53a12.61,12.61,0,0,0,.1,1.29,4.29,4.29,0,0,0,.37,1.08,3.66,3.66,0,0,0,.71,1,3.91,3.91,0,0,0,1,.71,4.28,4.28,0,0,0,1.08.36A10.21,10.21,0,0,0,6.54,22H17.45a12.61,12.61,0,0,0,1.29-.1,4.29,4.29,0,0,0,1.08-.37,3.66,3.66,0,0,0,1-.71,3.91,3.91,0,0,0,.71-1,4.28,4.28,0,0,0,.36-1.08A10.21,10.21,0,0,0,22,17.46c0-.19,0-.43,0-.54V7.08C22,7,22,6.73,22,6.55ZM12.23,19h0A7.12,7.12,0,0,1,8.8,18.1L5,19.1l1-3.72a7.11,7.11,0,0,1-1-3.58A7.18,7.18,0,1,1,12.23,19Zm0-13.13A6,6,0,0,0,7.18,15l.14.23-.6,2.19L9,16.8l.22.13a6,6,0,0,0,3,.83h0a6,6,0,0,0,6-6,6,6,0,0,0-6-6Zm3.5,8.52a1.82,1.82,0,0,1-1.21.85,2.33,2.33,0,0,1-1.12-.07,8.9,8.9,0,0,1-1-.38,8,8,0,0,1-3.06-2.7,3.48,3.48,0,0,1-.73-1.85,2,2,0,0,1,.63-1.5.65.65,0,0,1,.48-.22H10c.11,0,.26,0,.4.31s.51,1.24.56,1.33a.34.34,0,0,1,0,.31,1.14,1.14,0,0,1-.18.3c-.09.11-.19.24-.27.32s-.18.18-.08.36a5.56,5.56,0,0,0,1,1.24,5,5,0,0,0,1.44.89c.18.09.29.08.39,0s.45-.52.57-.7.24-.15.4-.09,1.05.49,1.23.58.29.13.34.21A1.56,1.56,0,0,1,15.73,14.36Z">
+                          </path>
+                        </g>
+                      </svg>
+                      <p class="hidden md:block">+977-9815500079</p>
+                    </div>
+                  </a>
+                  <a href="">
+                    <div class="flex items-center gap-2">
+                      <svg fill="#e0e0e0" width="18px" height="18px"
+                        viewBox="-2 -2 24 24" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin"
+                        class="jam jam-github" stroke="#e0e0e0">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <path
+                            d="M18.88 1.099C18.147.366 17.265 0 16.233 0H3.746C2.714 0 1.832.366 1.099 1.099.366 1.832 0 2.714 0 3.746v12.487c0 1.032.366 1.914 1.099 2.647.733.733 1.615 1.099 2.647 1.099H6.66c.19 0 .333-.007.429-.02a.504.504 0 0 0 .286-.169c.095-.1.143-.245.143-.435l-.007-.885c-.004-.564-.006-1.01-.006-1.34l-.3.052c-.19.035-.43.05-.721.046a5.555 5.555 0 0 1-.904-.091 2.026 2.026 0 0 1-.872-.39 1.651 1.651 0 0 1-.572-.8l-.13-.3a3.25 3.25 0 0 0-.41-.663c-.186-.243-.375-.407-.566-.494l-.09-.065a.956.956 0 0 1-.17-.156.723.723 0 0 1-.117-.182c-.026-.061-.004-.111.065-.15.07-.04.195-.059.378-.059l.26.04c.173.034.388.138.643.311a2.1 2.1 0 0 1 .631.677c.2.355.44.626.722.813.282.186.566.28.852.28.286 0 .533-.022.742-.065a2.59 2.59 0 0 0 .585-.196c.078-.58.29-1.028.637-1.34a8.907 8.907 0 0 1-1.333-.234 5.314 5.314 0 0 1-1.223-.507 3.5 3.5 0 0 1-1.047-.872c-.277-.347-.505-.802-.683-1.365-.177-.564-.266-1.215-.266-1.952 0-1.049.342-1.942 1.027-2.68-.32-.788-.29-1.673.091-2.652.252-.079.625-.02 1.119.175.494.195.856.362 1.086.5.23.14.414.257.553.352a9.233 9.233 0 0 1 2.497-.338c.859 0 1.691.113 2.498.338l.494-.312a6.997 6.997 0 0 1 1.197-.572c.46-.174.81-.221 1.054-.143.39.98.424 1.864.103 2.653.685.737 1.028 1.63 1.028 2.68 0 .737-.089 1.39-.267 1.957-.177.568-.407 1.023-.689 1.366-.282.343-.633.63-1.053.865-.42.234-.828.403-1.223.507a8.9 8.9 0 0 1-1.333.235c.45.39.676 1.005.676 1.846v3.11c0 .147.021.266.065.357a.36.36 0 0 0 .208.189c.096.034.18.056.254.064.074.01.18.013.318.013h2.914c1.032 0 1.914-.366 2.647-1.099.732-.732 1.099-1.615 1.099-2.647V3.746c0-1.032-.367-1.914-1.1-2.647z">
+                          </path>
+                        </g><svg><p class="hidden md:block">PRATIK GRX</p>
+                    </div>
+                  </a>
+                  <a href="">
+                    <div class="flex items-center gap-2">
+                      <svg width="18px" height="18px" viewBox="0 0 48 48"
+                        xmlns="http://www.w3.org/2000/svg" fill="#e0e0e0" stroke="#e0e0e0"
+                        stroke-width="0.00048000000000000007">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <title>facebook</title>
+                          <g id="Layer_2" data-name="Layer 2">
+                            <g id="invisible_box" data-name="invisible box">
+                              <rect width="48" height="48" fill="none"></rect>
+                              <rect width="48" height="48" fill="none"></rect>
+                            </g>
+                            <g id="icons_Q2" data-name="icons Q2">
+                              <path
+                                d="M44,6.1V41.9a.3.3,0,0,1-.1.2,1.9,1.9,0,0,1-1.8,1.8H31.6V28.5h4.9c.3,0,.3,0,.4-.3l.3-2.5c.1-1,.2-2,.4-3s0-.3-.2-.3H31.6V18.5c0-.3.1-.7.1-1a1.8,1.8,0,0,1,1.6-1.6l1.3-.2h3c.2,0,.2,0,.2-.2V10.4c0-.1,0-.2-.2-.2H33a7.2,7.2,0,0,0-3.3.7A6,6,0,0,0,26.2,14a7.3,7.3,0,0,0-.8,3.6c-.1,1.5,0,3.1,0,4.7H20.3c-.2,0-.2.1-.2.2v5.7c0,.2,0,.2.2.2h5.1V43.8a.3.3,0,0,0-.1.2H5.9a1.9,1.9,0,0,1-1.8-1.8c-.1,0-.1-.1-.1-.2V6.1c0-.1,0-.2.1-.2A1.9,1.9,0,0,1,5.9,4.1H42.1a1.9,1.9,0,0,1,1.8,1.8Z">
+                              </path>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                      <p class="hidden md:block">Pratik Gurung</p>
+                    </div>
+                  </a>
                 </div>
-              </aside>
-              <div>
-                <form action="https://formspree.io/f/mpwywgyg" id="myform" method="POST" class="flex flex-col gap-3">
-                  <input
-                    type="text"
-                    placeholder="Name"
-                    name="SenderName"
-                    class="bg-[#E0E0E0]/10 border-[#E0E0E0]/20 border-2 p-3"
-                    required
-                  />
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    name="SenderEmail"
-                    class="bg-[#E0E0E0]/10 border-[#E0E0E0]/20 border-2 p-3"
-                    required
-                  />
-                  <textarea
-                    id="SenderMessage"
-                    class="bg-[#E0E0E0]/10 border-[#E0E0E0]/20 border-2 p-3 resize-none h-[180px] md:h-[240px]"
-                    name="SenderMessage"
-                    placeholder="Message"
-                    required
-                  ></textarea>
-                  <button id="submitBtn" class="bg-[#E0E0E0] text-black p-3">
-                    Send Message
-                  </button>
-                  
-                </form>
               </div>
-            </div>
-          </div>
-          <p
-            class="text-[#A8A8A8] left-1/2 -translate-x-1/2 text-xs absolute bottom-0 z-30"
-          >
-            &copy; 2025 Pratik Grx. All rights reserved.
-          </p>
-        </div>
-      </section>
-    </main>
-<p id="formstatus" 
-   class="fixed top-4 right-4 bg-white/10 backdrop-blur-xl rounded-lg text-[#e0e0e0] px-4 py-2 rounded-lg shadow-md text-sm opacity-0 pointer-events-none transition-opacity duration-600 delay-1500 z-[999]">
-</p>
-    <footer
-      class="relative z-[2] pb-16 sm:pb-20 xl:px-80 lg:px-60 md:px-30 sm:px-15 px-4"
-    >
-      <section class="sm:mb-8 mb-6 fade-in">
-        <h2 class="text-2xl font-bold">Contact</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
-          <p
-            class="flex items-center gap-2 p-3 border-[#5C5959] rounded-sm border"
-          >
-            Phone number
-          </p>
-          <p
-            class="flex items-center gap-2 p-3 border-[#5C5959] rounded-sm border"
-          >
-            gmail account
-          </p>
-          <p
-            class="flex items-center gap-2 p-3 border-[#5C5959] rounded-sm border"
-          >
-            location
-          </p>
-          <button
-            class="flex items-center gap-2 p-3 border-[#5C5959] rounded-sm border hover:cursor-pointer opencontact"
-          >
-            Message me right now?
-          </button>
-        </div>
-      </section>
-      <section class="flex flex-col gap-3 fade-in">
-        <div class="bg-[#1C1C1C] p-3 flex items-start gap-2">
-          <div class="pt-1"></div>
-          <div>
-            <h3 class="font-bold mb-1">Contact and support</h3>
-            <p class="text-sm text-[#A8A8A8]">
-              Looking for internship & collaboration →
-              <a class="hover:underline" href="">Linked id here</a>
-            </p>
-            <p class="text-sm text-[#A8A8A8]">
-              Feel free to connect at →
-              <a href="" class="hover:underline">gmail@gmail.com</a>
-            </p>
-          </div>
-        </div>
-        <div class="bg-[#1C1C1C] p-3 flex gap-2 items-start">
-          <div class="pt-1"></div>
-          <div>
-            <h3>Follow</h3>
-            <div class="text-[#A8A8A8] text-sm flex gap-1">
-              <a class="hover:underline" href="">facebook</a>|
-              <a class="hover:underline" href="">Instagram</a>|
-              <a class="hover:underline" href="">Github</a>
+            </aside>
+            <div>
+              <form action="https://formspree.io/f/mpwywgyg" id="myform" method="POST" class="flex flex-col gap-3">
+                <input type="text" placeholder="Name" name="SenderName"
+                  class="bg-[#E0E0E0]/10 border-[#E0E0E0]/20 border-2 p-3 rounded-md" required />
+                <input type="email" placeholder="Email" name="SenderEmail"
+                  class="bg-[#E0E0E0]/10 border-[#E0E0E0]/20 border-2 p-3 rounded-md" required />
+                <textarea id="SenderMessage"
+                  class="bg-[#E0E0E0]/10 border-[#E0E0E0]/20 border-2 p-3 resize-none h-[180px] md:h-[240px] rounded-md"
+                  name="SenderMessage" placeholder="Message" required></textarea>
+                <button id="submitBtn" class="bg-[#E0E0E0] hover:bg-white/70  hover:cursor-pointer text-black p-3 rounded-md" >
+                  Send Message
+                </button>
+              </form>
             </div>
           </div>
         </div>
-      </section>
-    </footer>
-    <p class="text-[#A8A8A8] text-center text-xs relative z-2 fade-in">
-      &copy; 2025 Pratik Grx. All rights reserved.
-    </p>
-  </body>
-  <script src="script.js"></script>
+        <p class="text-[#A8A8A8] left-1/2 w-full text-center -translate-x-1/2 text-xs absolute bottom-0 z-30">
+          &copy; 2025 Pratik Grx. All rights reserved.
+        </p>
+      </div>
+    </section>
+  </main>
+  <p id="formstatus"
+    class="fixed top-4 right-4 bg-white/10 backdrop-blur-xl rounded-lg text-[#e0e0e0] px-4 py-2 rounded-lg shadow-md text-sm opacity-0 pointer-events-none transition-opacity duration-600 delay-1500 z-[999]">
+  </p>
+  <footer class="relative z-[2] pb-16 sm:pb-20 xl:px-80 lg:px-60 md:px-30 sm:px-15 px-4">
+    <section class="sm:mb-8 mb-6 fade-in">
+      <h2 class="text-2xl font-bold">Contact</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
+        <p class="flex items-center gap-2 p-3 border-[#5C5959] rounded-sm border">
+          <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M15.5562 14.5477L15.1007 15.0272C15.1007 15.0272 14.0181 16.167 11.0631 13.0559C8.10812 9.94484 9.1907 8.80507 9.1907 8.80507L9.47752 8.50311C10.1841 7.75924 10.2507 6.56497 9.63424 5.6931L8.37326 3.90961C7.61028 2.8305 6.13596 2.68795 5.26145 3.60864L3.69185 5.26114C3.25823 5.71766 2.96765 6.30945 3.00289 6.96594C3.09304 8.64546 3.81071 12.259 7.81536 16.4752C12.0621 20.9462 16.0468 21.1239 17.6763 20.9631C18.1917 20.9122 18.6399 20.6343 19.0011 20.254L20.4217 18.7584C21.3806 17.7489 21.1102 16.0182 19.8833 15.312L17.9728 14.2123C17.1672 13.7486 16.1858 13.8848 15.5562 14.5477Z"
+                fill="#e0e0e0"></path>
+              <path
+                d="M13.2595 1.87983C13.3257 1.47094 13.7122 1.19357 14.1211 1.25976C14.1464 1.26461 14.2279 1.27983 14.2705 1.28933C14.3559 1.30834 14.4749 1.33759 14.6233 1.38082C14.9201 1.46726 15.3347 1.60967 15.8323 1.8378C16.8286 2.29456 18.1544 3.09356 19.5302 4.46936C20.906 5.84516 21.705 7.17097 22.1617 8.16725C22.3899 8.66487 22.5323 9.07947 22.6187 9.37625C22.6619 9.52466 22.6912 9.64369 22.7102 9.72901C22.7197 9.77168 22.7267 9.80594 22.7315 9.83125L22.7373 9.86245C22.8034 10.2713 22.5286 10.6739 22.1197 10.7401C21.712 10.8061 21.3279 10.53 21.2601 10.1231C21.258 10.1121 21.2522 10.0828 21.2461 10.0551C21.2337 9.9997 21.2124 9.91188 21.1786 9.79572C21.1109 9.56339 20.9934 9.21806 20.7982 8.79238C20.4084 7.94207 19.7074 6.76789 18.4695 5.53002C17.2317 4.29216 16.0575 3.59117 15.2072 3.20134C14.7815 3.00618 14.4362 2.88865 14.2038 2.82097C14.0877 2.78714 13.9417 2.75363 13.8863 2.7413C13.4793 2.67347 13.1935 2.28755 13.2595 1.87983Z"
+                fill="#e0e0e0"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M13.4857 5.3293C13.5995 4.93102 14.0146 4.7004 14.4129 4.81419L14.2069 5.53534C14.4129 4.81419 14.4129 4.81419 14.4129 4.81419L14.4144 4.81461L14.4159 4.81505L14.4192 4.81602L14.427 4.81834L14.4468 4.8245C14.4618 4.82932 14.4807 4.8356 14.5031 4.84357C14.548 4.85951 14.6074 4.88217 14.6802 4.91337C14.8259 4.97581 15.0249 5.07223 15.2695 5.21694C15.7589 5.50662 16.4271 5.9878 17.2121 6.77277C17.9971 7.55775 18.4782 8.22593 18.7679 8.7154C18.9126 8.95991 19.009 9.15897 19.0715 9.30466C19.1027 9.37746 19.1254 9.43682 19.1413 9.48173C19.1493 9.50418 19.1555 9.52301 19.1604 9.53809L19.1665 9.55788L19.1688 9.56563L19.1698 9.56896L19.1702 9.5705C19.1702 9.5705 19.1707 9.57194 18.4495 9.77798L19.1707 9.57194C19.2845 9.97021 19.0538 10.3853 18.6556 10.4991C18.2607 10.6119 17.8492 10.3862 17.7313 9.99413L17.7276 9.98335C17.7223 9.96832 17.7113 9.93874 17.6928 9.89554C17.6558 9.8092 17.5887 9.66797 17.4771 9.47938C17.2541 9.10264 16.8514 8.53339 16.1514 7.83343C15.4515 7.13348 14.8822 6.73078 14.5055 6.50781C14.3169 6.39619 14.1757 6.32909 14.0893 6.29209C14.0461 6.27358 14.0165 6.26254 14.0015 6.25721L13.9907 6.25352C13.5987 6.13564 13.3729 5.72419 13.4857 5.3293Z"
+                fill="#e0e0e0"></path>
+            </g>
+          </svg> +977-9815500079
+        </p>
+        <p class="flex items-center gap-2 p-3 border-[#5C5959] rounded-sm border">
+          <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M4 18L9 12M20 18L15 12M3 8L10.225 12.8166C10.8665 13.2443 11.1872 13.4582 11.5339 13.5412C11.8403 13.6147 12.1597 13.6147 12.4661 13.5412C12.8128 13.4582 13.1335 13.2443 13.775 12.8166L21 8M6.2 19H17.8C18.9201 19 19.4802 19 19.908 18.782C20.2843 18.5903 20.5903 18.2843 20.782 17.908C21 17.4802 21 16.9201 21 15.8V8.2C21 7.0799 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V15.8C3 16.9201 3 17.4802 3.21799 17.908C3.40973 18.2843 3.71569 18.5903 4.09202 18.782C4.51984 19 5.07989 19 6.2 19Z"
+                stroke="#e0e0e0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+          </svg>
+          pratikgrx06@gmail.com
+        </p>
+        <p class="flex items-center gap-2 p-3 border-[#5C5959] rounded-sm border">
+          <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M20.6211 8.45C19.5711 3.83 15.5411 1.75 12.0011 1.75C12.0011 1.75 12.0011 1.75 11.9911 1.75C8.46107 1.75 4.42107 3.82 3.37107 8.44C2.20107 13.6 5.36107 17.97 8.22107 20.72C9.28107 21.74 10.6411 22.25 12.0011 22.25C13.3611 22.25 14.7211 21.74 15.7711 20.72C18.6311 17.97 21.7911 13.61 20.6211 8.45ZM12.0011 13.46C10.2611 13.46 8.85107 12.05 8.85107 10.31C8.85107 8.57 10.2611 7.16 12.0011 7.16C13.7411 7.16 15.1511 8.57 15.1511 10.31C15.1511 12.05 13.7411 13.46 12.0011 13.46Z"
+                fill="#e0e0e0"></path>
+            </g>
+          </svg>
+          Tandi, Chitwan, Nepal
+        </p>
+        <button
+          class="flex items-center gap-2 p-3 border-[#5C5959] rounded-sm border hover:cursor-pointer opencontact duration-300 hover:bg-[#373737] group/mailme">
+          <svg fill="#e0e0e0" width="18px" height="18px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"
+            stroke="#e0e0e0">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z">
+              </path>
+            </g>
+          </svg>
+          <p class="group-hover/mailme:translate-x-3 transition-transform duration-300">Message me right now?</p>
+        </button>
+      </div>
+    </section>
+    <section class="flex flex-col gap-3 fade-in">
+      <div class="bg-[#1C1C1C] p-3 flex items-start gap-2">
+        <div class="pt-1">
+          <svg width="18px" height="18px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <title>about-filled</title>
+              <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="drop" fill="#E0E0E0" transform="translate(42.666667, 42.666667)">
+                  <path
+                    d="M213.333333,3.55271368e-14 C331.154987,3.55271368e-14 426.666667,95.51168 426.666667,213.333333 C426.666667,331.153707 331.154987,426.666667 213.333333,426.666667 C95.51296,426.666667 3.55271368e-14,331.153707 3.55271368e-14,213.333333 C3.55271368e-14,95.51168 95.51296,3.55271368e-14 213.333333,3.55271368e-14 Z M234.713387,192 L192.04672,192 L192.04672,320 L234.713387,320 L234.713387,192 Z M213.55008,101.333333 C197.99616,101.333333 186.713387,112.5536 186.713387,127.704107 C186.713387,143.46752 197.698773,154.666667 213.55008,154.666667 C228.785067,154.666667 240.04672,143.46752 240.04672,128 C240.04672,112.5536 228.785067,101.333333 213.55008,101.333333 Z"
+                    id="Shape"></path>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-bold mb-1">Contact and support</h3>
+          <p class="text-sm text-[#A8A8A8]">
+            Looking for internship & collaboration →
+            <a class="hover:underline" href="">Linked id soon</a>
+          </p>
+          <p class="text-sm text-[#A8A8A8]">
+            Feel free to connect at →
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=pratikgrx06@gmail.com&su=Hello&body=This%20is%20a%20test"
+              target="_blank" class="hover:underline">pratikgrx06@gmail.com</a>
+          </p>
+        </div>
+      </div>
+      <div class="bg-[#1C1C1C] p-3 flex gap-2 items-start">
+        <div class="pt-1">
+          <svg width="18px" height="18px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <title>about-filled</title>
+              <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="drop" fill="#E0E0E0" transform="translate(42.666667, 42.666667)">
+                  <path
+                    d="M213.333333,3.55271368e-14 C331.154987,3.55271368e-14 426.666667,95.51168 426.666667,213.333333 C426.666667,331.153707 331.154987,426.666667 213.333333,426.666667 C95.51296,426.666667 3.55271368e-14,331.153707 3.55271368e-14,213.333333 C3.55271368e-14,95.51168 95.51296,3.55271368e-14 213.333333,3.55271368e-14 Z M234.713387,192 L192.04672,192 L192.04672,320 L234.713387,320 L234.713387,192 Z M213.55008,101.333333 C197.99616,101.333333 186.713387,112.5536 186.713387,127.704107 C186.713387,143.46752 197.698773,154.666667 213.55008,154.666667 C228.785067,154.666667 240.04672,143.46752 240.04672,128 C240.04672,112.5536 228.785067,101.333333 213.55008,101.333333 Z"
+                    id="Shape"></path>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div>
+          <h3>Follow</h3>
+          <div class="text-[#A8A8A8] text-sm flex gap-1">
+            <a class="hover:underline" href="https://www.facebook.com/pratikgrx06">Facebook</a>|
+            <a class="hover:underline" href="https://www.instagram.com/pratik_izz.me/">Instagram</a>|
+            <a class="hover:underline" href="https://github.com/PRATIKGRX">Github</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+  <p class="text-[#A8A8A8] text-center text-xs relative z-2 fade-in">
+    &copy; 2025 Pratik Grx. All rights reserved.
+  </p>
+</body>
+<script src="script.js"></script>
+
 </html>

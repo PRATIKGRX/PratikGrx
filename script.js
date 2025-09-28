@@ -7,11 +7,10 @@ let closelightbox = document.querySelectorAll('.closelightbox');
 lightboxOpener.addEventListener('click', () => {
   lightbox.classList.remove('hidden');
   lightbox.classList.add('block');
-
   // reset to invisible first
   lightboximg.classList.remove('opacity-100');
   lightboximg.classList.add('opacity-0');
-
+  document.body.classList.add('overflow-hidden')
   // trigger fade-in on next frame
   requestAnimationFrame(() => {
     lightboximg.classList.remove('opacity-0');
@@ -25,7 +24,7 @@ closelightbox.forEach(close => {
     // fade out
     lightboximg.classList.remove('opacity-100');
     lightboximg.classList.add('opacity-0');
-
+    document.body.classList.remove('overflow-hidden')
     // hide container after fade
     setTimeout(() => {
       lightbox.classList.add('hidden');
@@ -163,9 +162,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 300);
   }
 
-  // default active tab = first one (Feature)
-  const defaultTab = projectTabs[0];
-  const defaultName = defaultTab.textContent.trim().toLowerCase();
+// default active tab = first one (Feature)
+const defaultTab = projectTabs[0];
+const defaultName = defaultTab.getAttribute("data-tab"); // ✅ use data-tab
 
   moveProjectUnderline(defaultTab);
   defaultTab.classList.add("text-white");
@@ -178,14 +177,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // add click listeners
   projectTabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      const tabName = tab.textContent.trim().toLowerCase();
-      moveProjectUnderline(tab);
-      projectTabs.forEach((t) => t.classList.remove("text-white"));
-      tab.classList.add("text-white");
-      filterProjects(tabName);
-    });
+  tab.addEventListener("click", () => {
+    const tabName = tab.getAttribute("data-tab"); // ✅ always clean
+    moveProjectUnderline(tab);
+    filterProjects(tabName);
   });
+});
+
 
   // -------------------------
   // Contact section
@@ -197,12 +195,14 @@ document.addEventListener("DOMContentLoaded", () => {
   opencontact.forEach((open) => {
     open.addEventListener('click', () => {
       contactsection.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden')
     });
   });
 
   if (closecontact) {
     closecontact.addEventListener('click', () => {
       contactsection.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden')
     });
   }
 
