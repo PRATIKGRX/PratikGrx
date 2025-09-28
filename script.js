@@ -34,6 +34,28 @@ closelightbox.forEach(close => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  (function () {
+  const cards = document.querySelectorAll('.project-item.feature');
+
+  function setTabIndexForTouchDevices(enable) {
+    cards.forEach(card => {
+      if (enable) card.setAttribute('tabindex', '0');
+      else card.removeAttribute('tabindex');
+    });
+  }
+
+  // Detect touch devices (hover: none + coarse pointer OR touch event support)
+  const isTouch = matchMedia('(hover: none) and (pointer: coarse)').matches || ('ontouchstart' in window);
+
+  setTabIndexForTouchDevices(isTouch);
+
+  // Optional: update if device characteristics change (orientation/resize)
+  window.addEventListener('orientationchange', () => {
+    const nowTouch = matchMedia('(hover: none) and (pointer: coarse)').matches || ('ontouchstart' in window);
+    setTabIndexForTouchDevices(nowTouch);
+  });
+})();
+
   // -------------------------
   // Counters + SVG animation
   // -------------------------
