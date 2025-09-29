@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // -------------------------
   // Tabindex for touch devices
   // -------------------------
-  const cards = document.querySelectorAll('.project-item.feature');
+  const cards = document.querySelectorAll('.project-item');
   const setTabIndexForTouchDevices = enable => {
     cards.forEach(card => enable ? card.setAttribute('tabindex','0') : card.removeAttribute('tabindex'));
   };
