@@ -1,88 +1,68 @@
-let lightboxOpener = document.querySelector('.lightboxopener');
-let lightbox = document.querySelector('.lightbox');
-let lightboximg = document.getElementById('lightboximg');
-let closelightbox = document.querySelectorAll('.closelightbox');
-
-// Open lightbox
-lightboxOpener.addEventListener('click', () => {
-  lightbox.classList.remove('hidden');
-  lightbox.classList.add('block');
-  // reset to invisible first
-  lightboximg.classList.remove('opacity-100');
-  lightboximg.classList.add('opacity-0');
-  document.body.classList.add('overflow-hidden')
-  // trigger fade-in on next frame
-  requestAnimationFrame(() => {
-    lightboximg.classList.remove('opacity-0');
-    lightboximg.classList.add('opacity-100');
-  });
-});
-
-// Close lightbox
-closelightbox.forEach(close => {
-  close.addEventListener('click', () => {
-    // fade out
-    lightboximg.classList.remove('opacity-100');
-    lightboximg.classList.add('opacity-0');
-    document.body.classList.remove('overflow-hidden')
-    // hide container after fade
-    setTimeout(() => {
-      lightbox.classList.add('hidden');
-      lightbox.classList.remove('block');
-    }, 300); // match your transition duration
-  });
-});
-
 document.addEventListener("DOMContentLoaded", () => {
-  (function () {
-  const cards = document.querySelectorAll('.project-item.feature');
+  // -------------------------
+  // Lightbox
+  // -------------------------
+  const lightboxOpener = document.querySelector('.lightboxopener');
+  const lightbox = document.querySelector('.lightbox');
+  const lightboximg = document.getElementById('lightboximg');
+  const closelightbox = document.querySelectorAll('.closelightbox');
 
-  function setTabIndexForTouchDevices(enable) {
-    cards.forEach(card => {
-      if (enable) card.setAttribute('tabindex', '0');
-      else card.removeAttribute('tabindex');
+  if (lightboxOpener) {
+    lightboxOpener.addEventListener('click', () => {
+      lightbox.classList.replace('hidden', 'block');
+      lightboximg.classList.replace('opacity-100', 'opacity-0');
+      document.body.classList.add('overflow-hidden');
+      requestAnimationFrame(() => {
+        lightboximg.classList.replace('opacity-0', 'opacity-100');
+      });
     });
   }
 
-  // Detect touch devices (hover: none + coarse pointer OR touch event support)
-  const isTouch = matchMedia('(hover: none) and (pointer: coarse)').matches || ('ontouchstart' in window);
-
-  setTabIndexForTouchDevices(isTouch);
-
-  // Optional: update if device characteristics change (orientation/resize)
-  window.addEventListener('orientationchange', () => {
-    const nowTouch = matchMedia('(hover: none) and (pointer: coarse)').matches || ('ontouchstart' in window);
-    setTabIndexForTouchDevices(nowTouch);
+  closelightbox.forEach(close => {
+    close.addEventListener('click', () => {
+      lightboximg.classList.replace('opacity-100', 'opacity-0');
+      document.body.classList.remove('overflow-hidden');
+      setTimeout(() => {
+        lightbox.classList.replace('block', 'hidden');
+      }, 300);
+    });
   });
-})();
+
+  // -------------------------
+  // Tabindex for touch devices
+  // -------------------------
+  const cards = document.querySelectorAll('.project-item.feature');
+  const setTabIndexForTouchDevices = enable => {
+    cards.forEach(card => enable ? card.setAttribute('tabindex','0') : card.removeAttribute('tabindex'));
+  };
+  const isTouch = matchMedia('(hover: none) and (pointer: coarse)').matches || 'ontouchstart' in window;
+  setTabIndexForTouchDevices(isTouch);
+  window.addEventListener('orientationchange', () => setTabIndexForTouchDevices(matchMedia('(hover: none) and (pointer: coarse)').matches || 'ontouchstart' in window));
 
   // -------------------------
   // Counters + SVG animation
   // -------------------------
-  let element1 = document.getElementById("counter1");
-  let element2 = document.getElementById("counter2");
-  let svgAnimation = document.getElementById("lineAnimation");
+  const element1 = document.getElementById("counter1");
+  const element2 = document.getElementById("counter2");
+  const svgAnimation = document.getElementById("lineAnimation");
 
-  const start1 = 0, end1 = 200, duration1 = 3000;
-  const start2 = 0, end2 = 20, duration2 = 3000;
-
-  function animate(el, start, end, dur) {
+  const animate = (el, start, end, dur) => {
     let startTime = null;
-    function step(timestamp) {
+    const step = timestamp => {
       if (!startTime) startTime = timestamp;
-      let progress = Math.min((timestamp - startTime) / dur, 1);
+      const progress = Math.min((timestamp - startTime) / dur, 1);
       el.textContent = Math.floor(progress * (end - start) + start);
       if (progress < 1) requestAnimationFrame(step);
-    }
+    };
     requestAnimationFrame(step);
-  }
+  };
 
   if (element1) {
     new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          animate(element1, start1, end1, duration1);
-          if (element2) animate(element2, start2, end2, duration2);
+          animate(element1, 0, 200, 3000);
+          if (element2) animate(element2, 0, 20, 3000);
           if (svgAnimation) svgAnimation.beginElement();
           obs.disconnect();
         }
@@ -97,51 +77,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const underline = document.getElementById("underline");
   const contents = document.querySelectorAll(".tab-content");
 
-  function moveUnderline(element, targetUnderline) {
-    targetUnderline.style.width = element.offsetWidth + "px";
-    targetUnderline.style.left = element.offsetLeft + "px";
-  }
+  const moveUnderline = (el, underlineEl) => {
+    underlineEl.style.width = `${el.offsetWidth}px`;
+    underlineEl.style.left = `${el.offsetLeft}px`;
+  };
 
-  // set initial underline + active style + content
+  // Initial setup
   moveUnderline(tabs[0], underline);
   tabs[0].classList.replace("text-[#6E6D6D]", "text-[#E0E0E0]");
-
-  contents.forEach((c, i) => {
-    if (i === 0) {
-      c.classList.remove("hidden");
-      requestAnimationFrame(() => c.classList.remove("opacity-0")); // fade in first
-    } else {
-      c.classList.add("hidden", "opacity-0");
-    }
-  });
+  contents.forEach((c, i) => i === 0 ? c.classList.remove("hidden", "opacity-0") : c.classList.add("hidden", "opacity-0"));
 
   tabs.forEach((tab, index) => {
     tab.addEventListener("click", () => {
-      // move underline
       moveUnderline(tab, underline);
+      tabs.forEach(t => t.classList.replace("text-[#E0E0E0]", "text-[#6E6D6D]"));
+      tab.classList.replace("text-[#6E6D6D]", "text-[#E0E0E0]");
 
-      // update active tab styles
-      tabs.forEach((t) => {
-        t.classList.remove("text-[#E0E0E0]");
-        t.classList.add("text-[#6E6D6D]");
-      });
-      tab.classList.remove("text-[#6E6D6D]");
-      tab.classList.add("text-[#E0E0E0]");
-
-      // fade out all
-      contents.forEach((c) => {
-        c.classList.remove("opacity-100");
-        c.classList.add("opacity-0");
-        setTimeout(() => c.classList.add("hidden"), 300);
-      });
-
-      // fade in selected
+      contents.forEach(c => c.classList.replace("opacity-100","opacity-0"));
       setTimeout(() => {
+        contents.forEach(c => c.classList.add("hidden"));
         contents[index].classList.remove("hidden");
-        requestAnimationFrame(() => {
-          contents[index].classList.remove("opacity-0");
-          contents[index].classList.add("opacity-100");
-        });
+        requestAnimationFrame(() => contents[index].classList.add("opacity-100"));
       }, 300);
     });
   });
@@ -153,115 +109,75 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectItems = document.querySelectorAll(".project-item");
   const projectUnderline = document.getElementById("project-underline");
 
-  function moveProjectUnderline(element) {
-    projectUnderline.style.width = element.offsetWidth + "px";
-    projectUnderline.style.left = element.offsetLeft + "px";
-  }
+  const moveProjectUnderline = el => {
+    projectUnderline.style.width = `${el.offsetWidth}px`;
+    projectUnderline.style.left = `${el.offsetLeft}px`;
+  };
 
-  function filterProjects(tabName) {
-    // fade out all first
-    projectItems.forEach((item) => {
-      item.classList.remove("opacity-100");
-      item.classList.add("opacity-0");
+  const filterProjects = tabName => {
+    projectItems.forEach(item => {
+      item.classList.replace("opacity-100", "opacity-0");
       setTimeout(() => item.classList.add("hidden"), 300);
     });
 
-    // fade in selected after fade-out completes
     setTimeout(() => {
-      projectItems.forEach((item) => {
-        if (
-          tabName === "all" ||
-          item.classList.contains(tabName) ||
-          (tabName === "features" && item.classList.contains("feature"))
-        ) {
+      projectItems.forEach(item => {
+        if (tabName === "all" || item.classList.contains(tabName) || (tabName === "features" && item.classList.contains("feature"))) {
           item.classList.remove("hidden");
-          requestAnimationFrame(() => {
-            item.classList.remove("opacity-0");
-            item.classList.add("opacity-100");
-          });
+          requestAnimationFrame(() => item.classList.add("opacity-100"));
         }
       });
     }, 300);
-  }
+  };
 
-// default active tab = first one (Feature)
-const defaultTab = projectTabs[0];
-const defaultName = defaultTab.getAttribute("data-tab"); // ✅ use data-tab
-
+  const defaultTab = projectTabs[0];
   moveProjectUnderline(defaultTab);
   defaultTab.classList.add("text-white");
+  projectItems.forEach(item => item.classList.add("hidden","opacity-0","transition-opacity","duration-300"));
+  filterProjects(defaultTab.dataset.tab);
 
-  // set initial state
-  projectItems.forEach((item) => {
-    item.classList.add("hidden", "opacity-0", "transition-opacity", "duration-300");
-  });
-  filterProjects(defaultName);
-
-  // add click listeners
-  projectTabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    const tabName = tab.getAttribute("data-tab"); // ✅ always clean
+  projectTabs.forEach(tab => tab.addEventListener("click", () => {
     moveProjectUnderline(tab);
-    filterProjects(tabName);
-  });
-});
-
+    filterProjects(tab.dataset.tab);
+  }));
 
   // -------------------------
   // Contact section
   // -------------------------
-  let contactsection = document.getElementById('contactsection');
-  let opencontact = document.querySelectorAll('.opencontact');
-  let closecontact = document.querySelector('.closecontact');
+  const contactsection = document.getElementById('contactsection');
+  const opencontact = document.querySelectorAll('.opencontact');
+  const closecontact = document.querySelector('.closecontact');
 
-  opencontact.forEach((open) => {
-    open.addEventListener('click', () => {
-      contactsection.classList.remove('hidden');
-      document.body.classList.add('overflow-hidden')
-    });
+  opencontact.forEach(open => open.addEventListener('click', () => {
+    contactsection.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+  }));
+
+  closecontact?.addEventListener('click', () => {
+    contactsection.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
   });
-
-  if (closecontact) {
-    closecontact.addEventListener('click', () => {
-      contactsection.classList.add('hidden');
-      document.body.classList.remove('overflow-hidden')
-    });
-  }
 
   // -------------------------
   // Fade-in & Fade-top observer
   // -------------------------
-  const fadeObserver = new IntersectionObserver((entries) => {
+  const fadeObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("opacity-100", "translate-y-0");
-        entry.target.classList.remove("opacity-0", "translate-y-10", "-translate-y-10");
-        // fadeObserver.unobserve(entry.target); // uncomment for one-time only
+      if(entry.isIntersecting){
+        entry.target.classList.replace("opacity-0","opacity-100");
+        entry.target.classList.replace("translate-y-10","translate-y-0");
+        entry.target.classList.replace("-translate-y-10","translate-y-0");
       }
     });
   }, { threshold: 0.2 });
 
-  // fade-in (bottom)
   document.querySelectorAll(".fade-in").forEach(el => {
-    el.classList.add(
-      "opacity-0",
-      "translate-y-10",
-      "transition",
-      "duration-700",
-      "ease-out"
-    );
+    el.classList.add("opacity-0","translate-y-10","transition","duration-700","ease-out");
     fadeObserver.observe(el);
   });
 
-  // fade-top (top)
   document.querySelectorAll(".fade-top").forEach(el => {
-    el.classList.add(
-      "opacity-0",
-      "-translate-y-10",
-      "transition",
-      "duration-700",
-      "ease-out"
-    );
+    el.classList.add("opacity-0","-translate-y-10","transition","duration-700","ease-out");
     fadeObserver.observe(el);
   });
 
@@ -270,56 +186,53 @@ const defaultName = defaultTab.getAttribute("data-tab"); // ✅ use data-tab
   // -------------------------
   window.addEventListener("load", () => {
     const loader = document.getElementById("loader");
-    loader.classList.add("opacity-0", "transition", "duration-700");
-
+    loader.classList.add("opacity-0","transition","duration-700");
     setTimeout(() => {
       loader.style.display = "none";
-
-      // re-check fades after loader disappears
-      document.querySelectorAll(".fade-in, .fade-top").forEach(el => {
+      // re-check fades
+      document.querySelectorAll(".fade-in,.fade-top").forEach(el => {
         fadeObserver.unobserve(el);
         fadeObserver.observe(el);
       });
     }, 700);
   });
-});
-const form = document.getElementById("myform");
+
+  // -------------------------
+  // Contact form submission
+  // -------------------------
+  const form = document.getElementById("myform");
   const formstatus = document.getElementById("formstatus");
   const submitBtn = document.getElementById("submitBtn");
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const data = new FormData(form);
 
-  submitBtn.disabled = true;
-  submitBtn.textContent = "Sending...";
+  form?.addEventListener("submit", async e => {
+    e.preventDefault();
+    const data = new FormData(form);
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    formstatus.classList.remove("opacity-0");
+    formstatus.textContent = " Sending...";
 
-  // Show with fade-in
-  formstatus.classList.remove("opacity-0");
-  formstatus.textContent = " Sending...";
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { Accept: "application/json" },
+      });
 
-  try {
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: data,
-      headers: { Accept: "application/json" },
-    });
-
-    if (response.ok) {
-      formstatus.textContent = "Message sent successfully!";
-      form.reset();
-      contactsection.classList.add('hidden');
-    } else {
-      formstatus.textContent = "Oops! Something went wrong.";
+      if (response.ok) {
+        formstatus.textContent = "Message sent successfully!";
+        form.reset();
+        contactsection.classList.add('hidden');
+      } else {
+        formstatus.textContent = "Oops! Something went wrong.";
+      }
+    } catch {
+      formstatus.textContent = "Network error! Try again later.";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send Message";
+      setTimeout(() => formstatus.classList.add("opacity-0"), 1500);
     }
-  } catch (err) {
-    formstatus.textContent = "Network error !. Try again later.";
-  } finally {
-    submitBtn.disabled = false;
-    submitBtn.textContent = "Send Message";
+  });
 
-    // Fade out after 3s
-    setTimeout(() => {
-      formstatus.classList.add("opacity-0");
-    }, 1500);
-  }
 });
