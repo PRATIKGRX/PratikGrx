@@ -223,6 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
         formstatus.textContent = "Message sent successfully!";
         form.reset();
         contactsection.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
       } else {
         formstatus.textContent = "Oops! Something went wrong.";
       }
