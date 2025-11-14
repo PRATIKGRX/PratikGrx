@@ -184,18 +184,27 @@ document.addEventListener("DOMContentLoaded", () => {
   // -------------------------
   // Loader logic
   // -------------------------
-  window.addEventListener("load", () => {
-    const loader = document.getElementById("loader");
-    loader.classList.add("opacity-0","transition","duration-700");
-    setTimeout(() => {
-      loader.style.display = "none";
-      // re-check fades
-      document.querySelectorAll(".fade-in,.fade-top").forEach(el => {
-        fadeObserver.unobserve(el);
-        fadeObserver.observe(el);
-      });
-    }, 700);
-  });
+ const hideLoader = () => {
+  const loader = document.getElementById("loader");
+  if (!loader) return;
+  
+  loader.classList.add("opacity-0","transition","duration-700");
+  setTimeout(() => {
+    loader.style.display = "none";
+    // re-check fades
+    document.querySelectorAll(".fade-in,.fade-top").forEach(el => {
+      fadeObserver.unobserve(el);
+      fadeObserver.observe(el);
+    });
+  }, 700);
+};
+
+// Hide loader when window fully loads
+window.addEventListener("load", hideLoader);
+
+// Force hide after 2 seconds in case window load doesn't fire
+setTimeout(hideLoader, 2000);
+
 
   // -------------------------
   // Contact form submission
